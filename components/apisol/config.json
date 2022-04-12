@@ -1,0 +1,10 @@
+{
+    "js": [
+        "apisol.js"
+    ],
+    "css": "apisol.css",
+    "html": "apisol.html",
+    "target": "toolstoolbar",
+    "options": {
+    }
+}

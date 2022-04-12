@@ -1,0 +1,65 @@
+
+	/* STYLE DE LA FONCTIONNALITE ACCORDION */
+	/* Gestion de l'affichage */
+
+	.panel-default>.panel-heading a:after {
+		content: "";
+		position: relative;
+		top: 1px;
+		display: inline-block;
+		font-family: 'Glyphicons Halflings';
+		font-style: normal;
+		font-weight: 100;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		float: right;
+		transition: transform .25s linear;
+		-webkit-transition: -webkit-transform .25s linear;
+	}
+
+	.panel-default>.panel-heading a[aria-expanded="true"]:after {
+		content: "\2212";
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+
+	.panel-default>.panel-heading a[aria-expanded="false"]:after {
+		content: "\002b";
+		-webkit-transform: rotate(90deg);
+		transform: rotate(90deg);
+	}
+
+	.panel.panel-default {
+		border: none!important;
+		border-bottom: 1px #ddd solid!important;
+		border-radius: 0;
+		box-shadow: 0 1px 1px rgb(0 0 0 / 0%);
+	}
+
+	.panel-default>.panel-heading {
+		border: none!important;
+		background-color: #ebebeb!important;
+        padding: 13px!important;
+	}
+
+	.panel-heading {
+		padding: 25px 0px 15px!important;
+	}
+
+	.item .panel-title {
+		font-weight: 700;
+        font-size: 16px!important;
+		color: var(--color-theme)!important;
+        font-family: var(--font-condensed-theme);
+	}
+
+    #accordion .panel-collapse .panel-body {
+        border: none;
+        padding: 15px!important;
+    }
+
+	
+
+	
+

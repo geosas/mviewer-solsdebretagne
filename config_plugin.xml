@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <rdf:Description rdf:about="http://www.ilrt.bristol.ac.uk/people/cmdjb/">
+    <dc:title>Sols de Bretagne</dc:title>
+    <dc:creator>Agrocampus - UMR SAS</dc:creator>
+    <dc:publisher>anonymous</dc:publisher>
+    <dc:subject>Sols en Bretagne</dc:subject>
+    <dc:date>2020-09-12T10:21:51.893Z</dc:date>
+    </rdf:Description>
+    </rdf:RDF>
+</metadata>
+
+<application
+    title="Cartes des sols de Bretagne 2.0"
+    logo="https://geosas.fr/apps/sdb/img/SDB.logo_fonce.png"
+    help="https://geosas.fr/apps/sdb/aide.sdb.html"
+    style="https://geosas.fr/apps/sdb/css/sols_bretagne.css"
+    exportpng="true"
+    showhelp="false"
+    iconhelp="home"
+    measuretools="true"
+    togglealllayersfromtheme="false"
+    hideprotectedlayers="false">
+</application>
+
+<extensions>
+    <extension type="component" id="apisol" path="https://geosas.fr/apps/sdb/components"/>
+</extensions>
+
+<mapoptions maxzoom="20" projection="EPSG:3857" center="-307903.74898791354,6141345.088741366" zoom="9" />
+<!--<proxy url='../proxy/?url='/>-->
+<searchparameters bbox="false" localities="true" features="false" static="false"/>
+<olscompletion type="ban" url="https://api-adresse.data.gouv.fr/search/" attribution="La recherche d'adresse est un service proposé par l'API adresse.data.gouv.fr" />
+<baselayers style="default"> 
+    <baselayer type="WMTS" id="scan2" label="Cartes IGN"
+    title="GéoPortail" maxscale="2000"
+    thumbgallery="img/basemap/scan.jpg"
+    url="https://geobretagne.fr/geoportail/wmts"
+    layers="GEOGRAPHICALGRIDSYSTEMS.MAPS" format="image/jpeg"
+    visible="false" fromcapacity="false"
+    attribution="&lt;a href='http://www.geoportail.fr/' target='_blank'&gt;&lt;img src='https://api.ign.fr/geoportail/api/js/latest/theme/geoportal/img/logo_gp.gif'&gt;&lt;/a&gt;"
+    style="normal" matrixset="PM" maxzoom="22" />
+    <baselayer type="WMTS" id="ortho1"
+    label="Photo aérienne actuelle" title="GéoBretagne"
+    thumbgallery="img/basemap/ortho.jpg"
+    url="https://tile.geobretagne.fr/gwc02/service/wmts"
+    layers="satellite" format="image/png" visible="false"
+    attribution="&lt;a href='http://applications.region-bretagne.fr/geonetwork/?uuid=3a0ac2e3-7af1-4dec-9f36-dae6b5a8c731' target='_blank' &gt;partenaires GéoBretagne - IGN RGE BD ORTHO - PlanetObserver&lt;/a&gt;"
+    style="_null" matrixset="EPSG:3857" fromcapacity="false" />    
+    <baselayer  type="OSM" id="positron" 
+    label="Positron" 
+    title="CartoDb" 
+    thumbgallery="img/basemap/positron.png" 
+  url="https://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" maxzoom="20" 
+  visible="true" attribution="Map tiles by  &lt;a href='https://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='https://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" />
+  <baselayer  type="OSM" id="osm1" label="OpenStreetMap Hot" title="OpenStreetMap" thumbgallery="img/basemap/osm.png" 
+  url="http://{a-c}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" 
+  attribution="© MapQuest. Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap &lt;/a>,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>Humanitarian OpenStreetMap Team &lt;/a>" visible="false"/> 
+</baselayers>
+
+<themes mini="false"> 
+  <theme id="theme-1" name="Cartes régionales" collapsed="false" icon="caret-right">
+        <layer id="ucs_pp_bzh" name="Drainage naturel dominant" type="wms"
+            expanded = "false" queryable="true" 
+            exclusive = "true"      
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/cr.drainage_dominant.sld"
+            attribution="Drainage dominant // Les entités représentent des UCS (Unité cartographique de sol) // Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata=""
+            metadata-csw="">
+             <template url="https://geosas.fr/apps/sdb/templates/cr.caracteristiques_sol.mst"></template>
+        </layer>         
+    </theme>
+</themes>
+</config>

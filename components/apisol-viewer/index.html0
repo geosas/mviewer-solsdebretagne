@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APISol plugin</title>
+  <meta charset="utf-8">
+  <link href="tests/css/test.css" rel="stylesheet" type="text/css">
+  <link href="tests/lib/leaflet/leaflet.css" rel="stylesheet" type="text/css">
+  <script src="tests/lib/leaflet/leaflet.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="dist/index.js"></script>
+  <link href="dist/index_iframe.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="" style="background:">
+
+  <div id="map"></div>
+
+  <div id="test-modal"><!-- modal content will be inserted here --></div>
+
+</body>
+
+  <script type="text/javascript">
+    var coord_url=window.location.search.slice(1).split(',')
+
+    /* Initilisation du plugin de SolAid */
+    var solaid = $('#test-modal').APISol({
+      enableSetUTS: false,
+    });
+    openPlugin();
+
+    //evenements
+    $('.btn-reset').on('click',function(e){
+      openPlugin();
+    });
+
+    $('.btn-show').on('click',function(e){
+      solaid.show();
+    });
+
+    $('.btn-hide').on('click',function(e){
+      solaid.hide();
+    });
+
+    $('.btn-uts').on('click', function(e) {
+      let coords = [
+        [-1.77074345953911, 48.3979466182792],
+        [-1.77436983862979, 48.3979759527033],
+        [-1.77261447027314, 48.3943872753863],
+        [-1.78114991394296, 48.3965306329798],
+        [-1.77086877635319, 48.3982006099572],
+        [-1.75535228351304, 48.3959044558535],
+        [-1.78179055485795, 48.4035592953455],
+        [-1.78124011506137, 48.4029056194128],
+        [-1.77863022926822, 48.403119921],
+        [-1.77262364239516, 48.4035886322262],
+        [-1.76699919397907, 48.4042577754884],
+        [-1.77939376689015, 48.4010331534133],
+        [-1.7625029341451, 48.4033946815677],
+        [-1.76462801834781, 48.4029545730772],
+        [-1.76795439826479, 48.4009199832037],
+      ];
+      let coord = coords[Math.floor(Math.random() * coords.length)];
+      setLatLon(coord[1], coord[0]);
+      solaid.reset().load(coord[1], coord[0]);
+    });
+
+    solaid.on('apisol:open', function(e, lat, lon, srid) { console.log('[Event] apisol:open', lat, lon, srid); });
+    solaid.on('utsprecise:detected', function(e) { console.log('[Event] utsprecise:detected', e); });
+    solaid.on('ucs:choice', function(e) { console.log('[Event] ucs:choice'); });
+    solaid.on('questions:loaded', function(e, q) { console.log('[Event] questions:loaded', q); });
+    solaid.on('question:display', function(e, q) { console.log('[Event] question:display', q); });
+    solaid.on('uts:found', function(e, u) { console.log('[Event] uts:found', u); });
+    solaid.on('uts:confirm', function(e,u) { console.log('[Event] uts:confirm', u); });
+    solaid.on('uts:confirmed', function(e,u) { console.log('[Event] uts:confirmed', u); });
+    solaid.on('tree:open', function(e,w,h) { console.log('[Event] tree:open', w, h); });
+    solaid.on('tree:close', function(e,w,h) { console.log('[Event] tree:close', w, h); });
+
+    function setLatLon(lat,lon) {
+
+      $('#lat').val(lat);
+      $('#lon').val(lon);
+    }
+
+    function openPlugin() {
+
+      let lat = coord_url[1];
+      let lon = coord_url[0];
+      let profil = 0
+
+      lat = lat.replace(',','.');
+      lon = lon.replace(',','.');
+
+      let newlat = parseFloat(lat)+parseFloat(0.46);
+      
+
+      solaid
+       .setProfil(profil)
+       .reset()
+       .load(lat, lon, 4326)
+       ;
+
+    }
+
+
+    /* Handle click on map */
+    var popup;
+    var marker;
+    function onMapClick(e) {
+
+      setLatLon(e.latlng.lat,e.latlng.lng);
+
+      popup = L.popup().setContent(e.latlng.toString()+" <br><button onclick='javascript:openPlugin();' class='map-button'>Afficher le plugin ici</button>")
+
+      marker = L.marker(e.latlng)
+                .bindPopup(popup)
+                .addTo(map)
+                .openPopup();
+
+    }
+  </script>
+</html>

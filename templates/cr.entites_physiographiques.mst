@@ -1,0 +1,180 @@
+<!-- *** TEMPLATE ENTITE_P / BANDEAU DROITE *** --> 
+
+{{#features}}
+	<li class="item" style="width:100%;">
+		<div id="loc_ent">
+			<div class="title-feature ">Entité paysagère</div>
+			<div class="subtitle-feature">{{N_ENTITE_P}} - {{ENTITE_P}}</div>
+			<div class="textDescriptif"><p id="text-{{N_ENTITE_P}}"></p></div>			
+		</div>	
+	</li>
+{{/features}}
+
+<style>
+  /* Import des fonts*/
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+  /* Définition des variables */
+  :root {
+    --font-theme: 'Roboto', sans-serif;
+    --font-condensed-theme: 'Roboto Condensed', sans-serif;
+    --color-theme: #6c675c;
+  }
+
+  /* -- Propriétés de styles -- */
+	/* Texte */
+
+	.title-feature {
+		font-family: var(--font-condensed-theme);
+		color: #B5AD9C;
+		font-size: 13px;
+	}
+	.subtitle-feature {
+		font-family: var(--font-condensed-theme);
+		font-weight:600;
+		font-size: 14px;
+		text-transform: uppercase;
+		color:#407777;
+	}
+
+	#loc_ent {
+		text-align: center;
+		margin: 20px;
+		padding: 60px 10px;
+		background-image: url(https://geosas.fr/apps/sdb/img/loc_entite.svg);
+		background-size: 50px;
+		background-repeat: no-repeat;
+		background-position: 50% 0%;
+	}
+
+	.textDescriptif {
+		font-family: var(--font-theme);
+		color: #B5AD9C;
+		font-size: 13px;
+		margin-top: 12px;
+    	text-align: justify;
+	}
+
+	/**** Intégration des textes descriptifs pour chaque entité ****/
+
+	#text-1:after{
+		content:"Le bassin de Châteaulin forme une vaste pénéplaine constituée de petites collines. Il est encadré par la ligne de crête des Montagnes Noires et le massif de Rostrenen au sud et les massifs de Quintin et de l’Arrée au nord. Les versants abrupts des vallées marquent ce paysage collinaire. Les sols se développent majoritairement dans des schistes du Carbonifère caractéristiques, de couleur bleu-gris, à tendance ardoisière ou gréseuse.";
+	}
+
+	#text-2:after{
+		content:"Le bassin de Guipry-Messac se caractérise par des altitudes et des dénivelés faibles. Le paysage de plaines cultivées domine. Localement, des buttes allongées, liées à la présence de poudingues, rompent la monotonie du paysage. Les sols de cette entité sont issus essentiellement de schiste tendre. Ils sont fréquemment hydromorphes. A proximité de la vallée de la Vilaine, qui traverse le bassin du nord au sud, les sols se développent dans des terrasses alluviales anciennes.";
+	}
+
+	#text-3:after{
+		content:"Le bassin de Ploërmel est délimité par le massif de Paimpont à l’est, le bassin de Pontivy à l’ouest et des crêtes gréseuses sous landes et bois au sud. Il se caractérise par un relief globalement peu marqué et un paysage ouvert. Les sols sur schistes tendres, majoritaires, présentent une assez grande hétérogénéité dans leur répartition spatiale. La position topographique joue un rôle important dans le développement et la localisation des différentes unités de sols.";
+	}
+
+	#text-4:after{
+		content:"Le bassin de Rennes est dominé par de vastes plaines remembrées et cultivées. Le bocage à ragosses, déstructuré, est typique du bassin rennais. Ces plaines sont interrompues par les vallées de la Vilaine et ses affluents (le Meu, la Flume...). L’entité repose sur des schistes tendres, facilement altérables et fréquemment recouverts de dépôts de limons éoliens. Les sols parfois faiblement argilluviés prédominent.";
+	}
+
+	#text-5:after{
+		content:"Les bassins d’Evran et de Pleine-Fougères forment une vaste plaine au paysage ouvert. Les sols se développent dans des schistes tendres du Briovérien, des schistes métamorphisés et des limons éoliens. A proximité des vallées alluviales, les sols sont issus de terrasses caillouteuses anciennes déposées par les fleuves.";
+	}
+
+	#text-6:after{
+		content:"Les bassins de Pontivy et Loudéac ont un relief peu vallonné où se succèdent des plateaux et petites collines aux pentes faibles. Les grandes parcelles agricoles sont dédiées aux cultures céréalières et légumières, le bocage y est relictuel. Le territoire est drainé par les réseaux hydrographiques de l’Oust et du Lié qui ont creusé des vallées profondes dans le paysage. Les sols, de bonne qualité agronomique, se développent dans des schistes tendres.";
+	}
+
+	#text-7:after{
+		content:"Les collines de Saint-Aubin-d'Aubigné et le plateau de Vitré sont essentiellement caractérisés par la nature du socle géologique composé de grès et de schistes parfois recouvert de limons éoliens. Des plateaux ouverts, cultivés, alternent avec des collines bocagères. De nombreux massifs forestiers rompent les paysages de cultures. Les plateaux et dépressions portent des sols fréquemment hydromorphes.";
+	}
+
+	#text-8:after{
+		content:"Les collines et plateaux du Porhoët sont constitués de larges zones planes et de versants peu abrupts. Le parcellaire agricole est dominé par les cultures céréalières. Les zones les plus humides sont souvent boisées (forêt de la Hardouinais). Les sols des collines, souvent acides et caillouteux, sont issus de schistes, grès et quartzites. Ceux des plateaux sont plus profonds et davantage hydromorphes ; ils proviennent majoritairement des limons éoliens et de schistes tendres.";
+	}
+
+	#text-9:after{
+		content:"La Cornouaille intérieure est délimitée au nord par la crête des Montagnes Noires et par le bassin de Châteaulin et au sud par le plateau de Plouay. Les paysages sont dominés par des collines au maillage bocager dense. Le territoire est drainé par l’Odet et l’Isole qui ont creusé des vallées profondes dans le territoire. La vaste dépression humide de Langonnet, se trouve à l'intersection des Côtes-d'Armor et du Morbihan. Les sols se développant sur des reliefs granitiques abrupts sont souvent peu à moyennement profonds ; ceux issus des schistes (parfois mêlés de quartzites) et des grès sont fréquemment hydromorphes.";
+	}
+
+	#text-10:after{
+		content:"Le littoral nord légumier est fortement marqué par son paysage agricole dominé par les productions légumières de pleins champs et sous serre. On note également la forte empreinte du mitage urbain, notamment à proximité des côtes. Cette entité se caractérise surtout par des recouvrements importants de limons éoliens. Dans le Finistère, la côte est ponctuée par des massifs dunaires. En Ille-et-Vilaine, les sols des polders et du marais blanc de Dol-de-Bretagne se développent dans un sédiment marin très fin et calcaire : la tangue.";
+	}
+
+	#text-11:after{
+		content:"Le littoral sud (et les îles) inclut la frange côtière sud de la région. Les multiples faciès de ses côtes créent une grande diversité de sites littoraux : vaseux, sableux ou encore rocheux. Les richesses naturelles de l’entité sont également soulignées par la présence d’une zone humide d’importance internationale, le Golfe du Morbihan. Les sols se développent majoritairement dans des granites, gneiss et des micaschistes. Les sols côtiers, peu profonds, séchants, ont des potentialités agronomiques moindres par rapport aux sols de l’intérieur.";
+	}
+
+	#text-12:after{
+		content:"Les marais de Redon s’organisent autour des marais de Redon et de la Vilaine, classés en zone Natura 2000, formant un paysage de zone humide caractéristique. A proximité de Redon, le mitage urbain est particulièrement dense. Au sein du marais, les sols se développent dans des alluvions et des terrasses alluviales. Ils sont profonds et hydromorphes. Sur les pourtours du marais, les schistes ardoisiers et les grès dominent.";
+	}
+
+	#text-13:after{
+		content:"Le massif de Paimpont et les plissements de Bain-de-Bretagne marquent une rupture topographique avec les bassins voisins et sont constitués d’une mosaïque de forêts, landes et zones agricoles. L’ouest est essentiellement boisé et comprend la forêt de Paimpont. Les versants sont par endroits particulièrement abrupts. A l’est, le paysage de plaine domine. Les sols se développent majoritairement sur des schistes pourprés, ardoisiers et des grès armoricain.";
+	}
+
+	#text-14:after{
+		content:"Le massif du Mené est constitué d’alignements de collines aux altitudes variablement élevées. L’entité présente une grande diversité de paysage. Le maillage bocager dense majoritaire côtoie de nombreuses landes (landes du Mené) et forêts (forêt de Lorge, forêt de la Perche, forêt de Loudéac). Les sols se sont développés dans des schistes, des micaschistes, des granites et des roches volcaniques. Les sols provenant des micaschistes présentent des altérations talqueuses très développées.";
+	}
+
+	#text-15:after{
+		content:"Les massifs de l’Arrée et de Quintin sont caractérisés par de nombreux sommets aux fortes pentes. A la longue ligne de crête des Monts d’Arrée, formée de schistes mêlés de quartzites et de grès, succède un ensemble de collines granitiques. De nombreuses rivières (l’Aulne, l’Elorn, le Blavet, le Léguer et le Trieux) y prennent leur source. Les sols des sommets sont caillouteux et portent majoritairement des landes. Les sols des reliefs collinaires sont quant à eux très riches en matière organique (humiques), et occupés par des forêts de bordures et des prairies.";
+	}
+
+	#text-16:after{
+		content:"Les massifs granitiques bocagers du nord-est sont associés à une auréole de métamorphisme (cornéenne). Quelques dépôts discontinus de limons éoliens sont présents mais restent minoritaires. Les paysages sont très contrastés : les secteurs de forte densité bocagère et de boisement contrastent avec les plaines ouvertes sur schiste tendre. Les plateaux ondulés et les dépressions formant le cœur des massifs présentent une forte densité de sols hydromorphes. Autour, les sols brunifiés et faiblement argilluviés dominent.";
+	}
+
+	#text-17:after{
+		content:"La cuvette du Porzay est un vaste territoire 'déprimé' aux paysages ouverts. Le relief est formé de versants longs et concaves. Les sols se développent dans les schistes tendres. La montagne de Locronan est un relief important du sud de la cuvette du Porzay. Le paysage bocager est marqué par la présence des forêts du Duc et du Nevet. Les sols de la montagne de Locronan sont majoritairement acides et se développent dans des granites.";
+	}
+
+	#text-18:after{
+		content:"Les Montagnes Noires et le Menez-Hom constituent une longue ligne de crête. Le paysage est dominé par une crête aux versants abrupts et convexes. Elle est ponctuée par des roc'hs armés de schistes et de quartzites (point culminant - Roc'h Touallëron - 318 m) et par des menez (monts) caractérisés par des grès. Le Menez-Hom, dont le point haut culmine à 330 m, est constitué exclusivement de grès armoricain. Les sols développés dans ces matériaux sont caillouteux et podzoliques.";
+	}
+
+	#text-19:after{
+		content:"Les piémonts de Locminé sont bordés par les vallées de la Claie et de l’Evel, au sud. L'entité se compose d’une succession de buttes granitiques (Lizio, Guéhenno, Bignan, Saint-Allouestre) bordées de micaschistes. Les cours d’eau prenant naissance au sein de ces massifs dessinent des vallées encaissées. Le paysage est mixte ; les cultures et prairies alternent avec des landes ou des bois, notamment sur les versants à pente forte. Les sols, sont globalement peu à moyennement profonds et drainants.";
+	}
+
+	#text-20:after{
+		content:"Les piémonts de l’Arrée et la rade de Brest constituent une transition entre le massif de l’Arrée et le plateau Léonard. Ils sont formés de collines sillonnées par de nombreuses vallées (Elorn, Penfeld, rivières du Faou et de Daoulas) qui se jettent dans de la rade de Brest. La côte de la rade de Brest est très découpée. Elle est délimitée au nord par les presqu’îles de Plougastel et de Logonna-Daoulas. Les sols de cette entité se développent à la fois dans des schistes, des quartzites, des grès, et des gneiss. ";
+	}
+
+	#text-21:after{
+		content:"Le plateau de Fougères et du Coglais est marqué par une forte densité bocagère, notamment au nord de Fougères. La présence d’affleurements de granite en boule est fréquente dans le nord de l’entité. Le Couesnon et ses affluents constituent les vallées majeures de l’entité, parfois fortement encaissées. Les têtes de talwegs sont fréquemment tourbeuses. Les sols sont principalement issus de granite, limons et schiste.";
+	}
+
+	#text-22:after{
+		content:"Le plateau de Plouay est encadré par les vallées encaissées du Blavet, du Scorff et de L’Ellé. Elle forme une entité paysagère intermédiaire entre le bocage dense de la Cornouaille intérieure et les plateaux aux paysages ouverts du bassin de Pontivy. Les sols se développent essentiellement à partir de granite, parfois mêlés à des limons éoliens, et de micaschiste. Ils ont de bonnes potentialités agricoles.";
+	}
+
+	#text-23:after{
+		content:"Le plateau de Vannes, délimité par les reliefs des landes de Lanvaux au Nord et le littoral sud morbihannais, marque une transition entre ces deux entités paysagères. Le paysage s’ouvre progressivement, le boisement régresse, l’habitat diffus et le mitage urbain occupent des surfaces croissantes. Les sols se développent essentiellement à partir de granite et de gneiss.";
+	}
+
+	#text-24:after{
+		content:"Le plateau du Penthièvre est un vaste territoire bordé par la Manche. La côte plus ou moins découpée dessine à partir du Cap Fréhel un «V» ouvert sur la baie de Saint-Brieuc. Des falaises plus ou moins abruptes surplombent la mer. Le paysage ouvert est ponctué de massifs boisés (forêt de la Hunaudaye, forêt de Saint-Aubin et bois de Coron). Les sols sont issus d’une grande variété de matériaux. Il est à noter qu’une proportion importante de sols provient de roches volcaniques basiques.";
+	}
+
+	#text-25:after{
+		content:"La topographie du plateau léonard et du Trégor morlaisien est peu marquée et les plateaux sont généralement larges et entaillés par des vallées étroites. L’entité est parcourue par de nombreux petits fleuves côtiers : Queffleuth, Penzé, Horn, Quillimadec, Aber Wrac’h, Aber Benoît et Aber Ildut. Les sols du plateau léonard se développent dans des granites et gneiss, tandis que ceux du Trégor morlaisien proviennent des schistes et micaschistes. Une importante couverture de limons éoliens s’est par endroits superposée à ces matériaux.";
+	}
+
+	#text-26:after{
+		content:"La presqu’île de Crozon expose une grande diversité de milieux littoraux et sa façade atlantique offre de hautes falaises. La topographie de l’intérieur des terres est caractérisée par des plateaux et des reliefs accidentés. Les sols sont essentiellement issus de grès, de schistes et de schistes quartzites. Ils sont majoritairement occupés par des prairies et des landes qui laissent progressivement la place à un mitage important de l’habitat.";
+	}
+
+	#text-27:after{
+		content:"Les reliefs des Landes de Lanvaux forment le plus vaste massif boisé de Bretagne. Ce vaste ensemble, orienté nord-ouest/sud-est selon l’axe de plis et failles géologiques, est traversé par des vallées d’importance (l’Oust, l’Arz, la Claie). Il constitue une véritable barrière «climatique» entre la zone littorale sous influence océanique et l’intérieur des terres. Les sols se développent essentiellement sur du granite. Ils sont de type brunifiés à argilluviés, fréquemment hydromorphes sur les plateaux.";
+	}
+
+	#text-28:after{
+		content:"Le Trégor et le Goëlo sont composés d’une mosaïque de plateaux cultivés et de collines bocagères. Les côtes déchiquetées pésentent parfois de hautes falaises dominant la mer. L’entité est parcourue par de nombreux fleuves côtiers (Douron, Léguer, Yaud, et Trieux, Leff et Gouët). Les sols du Trégor et du Goëlo se développent essentiellement dans des granites, des roches volcaniques, des grès et dans une importante couverture de limons éoliens superposée à ces matériaux.";
+	}
+
+	#text-29:after{
+		content:"Les vallées sont des dépressions géographiques façonnées par les cours d’eau qui ont modelé les paysages en développant soit de larges méandres, soit des incisions profondes dans les plateaux et les collines. Les fonds de vallée humides sont occupés par des prairies naturelles, des friches et localement des petites tourbières. Les sols des versants se développent dans une grande diversité de matériaux. Ceux des fonds de vallées sont issus de matériaux d’apports (colluvions et/ou alluvions).";
+	}
+
+	#text-30:after{
+		content:"Ces zones anthropiques sont liées au développement des intrastructures humaines et se localisent des des contextes topographiques et paysagers très divers. ";
+	}
+	
+</style>

@@ -1,0 +1,184 @@
+<!-- *** TEMPLATE / Propriétés des sols >> Elements grossiers *** --> 
+
+{{#features}}
+
+<li class="item container-template" style="width:100%;">
+	<div id="backgroundTitleSynth" style="line-height: 1.2;">
+		<div class="title-temp" style="font-size: 16px;opacity: 0.7;">Propriétés des sols</div>
+        <div class="title-temp">Élements grossiers (%) </div>        
+	</div>	
+
+    <div class="blocChart">
+        <div id="idChartEG">
+			<canvas class="chart" id="GraphBarEG" height="150"></canvas>
+		</div>
+		<div class="textChart">
+			<div class="title-chart">Répartition de la proportion des élements grossiers (%) selon la profondeur du sol</div>
+			<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+		</div>
+    </div>  
+    
+</li>
+<style>
+
+/* Import des fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Définition des variables */
+:root {
+	--font-theme: 'Roboto', sans-serif;
+	--font-condensed-theme: 'Roboto Condensed', sans-serif;
+	--color-theme: #6c675c;
+}
+
+.container-template {
+	padding: 15px;
+}
+
+/* Titres et texte */
+#backgroundTitleSynth {
+	background-image: url(https://geosas.fr/apps/sdb/img/soil_synthese.svg);
+    padding: 10px 0px 10px 65px;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: left;
+	margin-bottom: 20px;
+}
+
+.title-temp {
+	font-family: var(--font-condensed-theme);
+    text-transform: uppercase;
+    color: var(--color-theme);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.subtitle-temp {
+	font-family: var(--font-condensed-theme);
+	color: var(--color-theme);
+	font-size: 13px;
+    font-style: italic;
+}
+
+/* Chart */
+.textChart {
+    text-align: center;
+    margin: 10px 0;
+	color: var(--color-theme);
+}
+
+.title-chart {
+    font-weight: 600;
+}
+
+</style>
+<script>
+
+		// Couleurs du graphique EG
+		function getColorBarEG(value) {
+			var color;
+        if (value < 5) {
+            color = '#e2e2e2';
+        } else if (value >= 5 && value < 10) {
+            color = '#bababa';
+        } else if (value >= 10 && value < 20) {
+            color = '#9f9f9f';
+        } else if (value >= 20 && value < 30) {
+            color = '#7c7c7c';
+        } else if (value >= 30) {
+            color = '#4e4e4e';
+        };
+        return color;
+		}
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarEG = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarEG = [
+			parseFloat({{Band1}}),
+			parseFloat({{Band2}}),
+			parseFloat({{Band3}}),
+			parseFloat({{Band4}}),
+			parseFloat({{Band5}}),
+			parseFloat({{Band6}})
+		];
+		var colorsBarEG = [
+			getColorBarEG({{Band1}}),
+			getColorBarEG({{Band2}}),
+			getColorBarEG({{Band3}}),
+			getColorBarEG({{Band4}}),
+			getColorBarEG({{Band5}}),
+			getColorBarEG({{Band6}})
+		];
+
+		var graph_bar_EG = {};
+		graph_bar_EG.getData = function() {
+			var data = {
+				chart_bar_EG: {
+					labels: labelsBarEG,
+					colors: colorsBarEG,
+					data: datasetBarEG
+				}
+			};
+			console.log(data);
+			graph_bar_EG.drawChart(data);
+		};
+    
+		graph_bar_EG.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarEG");
+			var GraphBarEG = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_EG.labels,
+					datasets: [{
+						label: "",
+						backgroundColor: data.chart_bar_EG.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_EG.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+                            gridLines: {
+                                display:false
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Profondeur du sol'
+                            }
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " %";
+							}
+						}
+					}
+				}
+			});
+		};
+
+		if (typeof Chart === 'function') {
+			graph_bar_EG.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_EG.getData();
+			});
+		}
+
+</script>
+
+{{/features}}

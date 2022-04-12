@@ -1,0 +1,570 @@
+<!-- *** TEMPLATE CODE4C / BANDEAU DROITE *** --> 
+
+{{#features}}
+	<li class="item" style="width:100%;">
+        <div id="caraSol" style="margin: 0;">
+			<div class="title-rubrique">Caractérisation des sols selon la méthode 4 critères - Massif Armoricain <span style="font-family:var(--font_italic);color:#848077!important;"><a href="http://www.sols-de-bretagne.fr/donnees-et-outils/func-startdown/95/" target="_blank">(Méthode Tarière)</a></span>:</div>
+
+			<!--UTS-->
+			<div class="subtitle-feature"><a href="https://apisol.geosas.fr/public/Fiches_UTS/fiche.php?uts={{UTS}}" target="_blank">UTS N°{{UTS}} - <span id="nameUTS_{{UTS}}"></span></a></div>
+			<!--UTS-->
+
+			<!-- CODE -->
+			<div id="code4C" style="">
+				<span id="C-matgeo" class="cd">{{SUB}}</span>
+				<span id="C-hydro" class="cd">{{HYD}}</span>
+				<span id="C-profil" class="cd">{{TYPE}}</span>
+				<span id="C-prof" class="cd">{{PROF}}</span>
+			</div>
+			<!-- /.CODE -->			
+            
+			<!-- CARACTERISTIQUE -->
+			<!-- Matériau -->
+			<div class="caraSol-feature" id="mat_geo">
+                <div class="titleCara">Matériau(x) géologique(s)</div>
+                <div class="featureCara"><span id="matgeo-{{SUB}}"></span></div>   
+            </div>
+			<!-- /.Matériau -->
+			<!-- Hydromorphie -->
+			<div class="caraSol-feature" id="hydro">
+                <div class="titleCara">Hydromorphie</div>
+				<div class="progressSol">
+                    <div id="barHydro" class="progress-bar"></div>
+                </div>
+	            <div class="BarTicks">
+					<p class="rangeBar min">0</p>
+					<p class="rangeBar value">{{HYD}}</p>
+					<p class="rangeBar max">9</p>
+				</div>  
+				<div class="featureCara"><span id="hydro-{{HYD}}"></span></div>
+				<div class="subfeatureCara"><span id="subhydro-{{HYD}}"></span></div>                  
+            </div>
+			<!-- /.Hydromorphie -->
+			<!-- Profil -->
+			<div class="caraSol-feature" id="dev_profil">
+                <div class="titleCara">Développement de profil</div>
+                <div class="featureCara"><span id="devp-{{TYPE}}"></span></div>
+				<div class="subfeatureCara"><span id="subdevp-{{TYPE}}"></span></div>   
+            </div>
+			<!-- /.Profil -->
+
+			<!-- Profondeur -->
+			<div class="caraSol-feature" id="profondeur">
+                <div class="titleCara">Profondeur du sol</div>
+                <div class="progressSol">
+                    <div id="barProf" class="progress-bar"></div>
+                </div>
+				<div class="BarTicks">
+					<p class="rangeBar min">6</p>
+                    <p class="rangeBar value">{{PROF}}</p>
+					<p class="rangeBar max">1</p>
+				</div> 
+				<div class="featureCara"><span id="profondeur-{{PROF}}"></span></div>
+				<div class="subfeatureCara"><span id="subprofondeur-{{PROF}}"></span></div>   
+            </div>
+			<!-- /.Profondeur -->
+			<!-- /.CARACTERISTIQUE -->
+
+			<!-- Fiche UTS 
+			<div style="margin-top: 20px;">
+				<a class="button_link" href="http://geowww.agrocampus-ouest.fr/geoserver/wfs?typeName=sdb%3A{{Nom}}&outputFormat=SHAPE-ZIP&request=GetFeature&service=WFS&version=2.0.0" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Télécharger la couche</a>
+			</div>
+			<-- /.Fiche UTS -->						
+		</div>
+
+	
+	</li>
+
+
+<style>
+/* Import des fonts*/
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+  /* Définition des variables */
+  :root {
+    --font-theme: 'Roboto', sans-serif;
+    --font-condensed-theme: 'Roboto Condensed', sans-serif;
+    --color-theme: #6c675c;
+  }
+
+  /* -- Propriétés de styles -- */
+
+	/* CODE 4C */
+	div#code4C {
+		text-align: center;
+		margin: 50px 0px;
+	}
+
+	.cd {
+		color: white;
+		font-family: var(--font-condensed-theme);
+		text-transform: uppercase;
+		font-size: 25px;
+		padding: 20px 15px;
+		border-radius: 3px;
+	}
+
+	#C-matgeo {
+	    background-color:#905B63;
+	}
+
+	#C-hydro {
+	    background-color:#407777;
+	}
+
+	#C-profil {
+	    background-color:#efb556;
+	}
+
+	#C-prof {
+	    background-color:#f18e67;
+	}
+	
+
+	/* Texte */
+
+	.title-feature {
+		color: var(--color-theme);
+	    font-family: var(--font-condensed-theme);
+		font-weight:600;
+	    text-transform: uppercase;
+	    font-size: 19px;
+	    margin-bottom: 2px;
+	    line-height: 1.2;
+	}
+	.subtitle-feature a{
+		color: var(--color-theme);
+		font-family: var(--font-condensed-theme);
+		text-transform: uppercase;
+		font-size:15px;
+		margin-bottom: 10px;
+		line-height:1;
+	}
+
+	.text-feature{
+		font-family: var(--font-condensed-theme);
+		color:#555;
+		font-size:12px;
+		margin-top:5%;
+	}
+
+	.title-rubrique {
+		color: var(--color-theme);
+	    font-family: var(--font-condensed-theme);
+		font-weight:600;
+	    font-size: 18px;
+	    margin-bottom: 20px;
+	    line-height: 1.2;
+	}
+
+	/* Titre 4C */
+
+	#titleBox4c {
+		padding: 7% 13% 5px 20px;
+    	/* border-bottom-left-radius: 40px;*/
+	}
+
+	/* Lien vers la fiche UTS */
+
+	#caraSol a.button_link {
+		padding: 8px 12px;
+		background-color: var(--color-theme);
+		color: white;
+		font-family: var(--font-condensed-theme);
+		border-radius: 4px;
+		margin-top: 16px;
+	}
+
+	#caraSol a.button_link:hover {
+		background-color: #6c675cbf;
+	}
+
+	/**** Caractéristiques du sol */
+
+	#caraSol {
+		padding: 20px;
+	}
+	.caraSol-feature {
+		padding: 10px 5px 10px 70px;
+		background-size: 50px;
+		background-repeat: no-repeat;
+		background-position: 0% 50%;
+		margin-bottom: 20px;
+	}
+
+	.titleCara {
+		font-family: var(--font-condensed-theme);
+		color: #B5AD9C;
+		font-size: 13px;
+	}
+
+	.featureCara {
+		font-family: var(--font-condensed-theme);
+		font-weight:600;
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+
+	.subfeatureCara {
+		font-family: var(--font-condensed-theme);
+		font-size: 14px;
+	}
+
+	/* Bar */
+
+	.BarTicks {
+		margin-top: 8px;
+		width: 80%;
+		display: grid;
+		grid-template-columns: repeat(3,1fr);
+		grid-gap: 10px;
+	}
+
+	.progressSol {
+		width: 80%;
+		background-color: #e8e6e0;
+		height: 5px;
+		margin: 5px 0px;
+		border-radius: 20px;
+	}
+
+	.progress-bar {
+		float: left;
+		border-radius: 20px;
+		box-shadow: none;
+	}
+
+	/* Bar range */
+	.rangeBar.min {
+		text-align: left;
+	}
+
+	.rangeBar.max {
+		text-align: right;
+	}
+
+	p.rangeBar {
+		color: #b5ad9c;
+		font-family: var(--font-condensed-theme);
+		/* font-size: 12px; */
+	}
+
+    .rangeBar {
+        text-align: center;
+    }
+
+    #hydro .value {
+        color: #3f7777!important;
+        font-family: var(--font_bold)!important;
+    }
+
+    #profondeur .value {
+        color: #f18e67!important;
+        font-family: var(--font_bold)!important;
+    }
+	
+	/* Profondeur */
+	#profondeur {
+		background-image: url(https://geosas.fr/apps/sdb/img/epaisseur.svg);
+	}
+	#profondeur .progressSol {
+		background-color: #f18e67!important;
+	}
+	#profondeur .progress-bar {
+		background-color: #e8e6e0;
+		float: right;	
+	}
+	#profondeur .featureCara, #profondeur .subfeatureCara {
+		color: #f18e67;	
+	}
+
+	/* Hhydromorphie */
+	#hydro {
+		background-image: url(https://geosas.fr/apps/sdb/img/hydromorphie.svg);
+	}
+	#hydro .progress-bar {
+		background-color: #407777;	
+	}
+	#hydro .featureCara, #hydro .subfeatureCara {
+		color: #407777;	
+	}
+
+	/* Matériau géologique */
+	#mat_geo {
+		background-image: url(https://geosas.fr/apps/sdb/img/materiau.svg);
+	}
+
+	#mat_geo .featureCara {
+		color: #905B63;	
+	}
+
+	/* Développement de profil - type */
+	#dev_profil {
+		background-image: url(https://geosas.fr/apps/sdb/img/famille.svg);
+	}
+
+	#dev_profil .featureCara, #dev_profil .subfeatureCara {
+		color: #efb556;	
+	}
+
+	/******** Insertion du contenu éditorial - LIbéllé des catégories ********/ 
+
+	/* Profondeur */
+	#profondeur-1:after,#profondeur-2:after{
+		content:"Sol profond";
+	}
+	#subprofondeur-1:after{
+		content:"Profondeur supérieure à 1m";
+	}
+	#subprofondeur-2:after{
+		content:"Profondeur de 80cm à 1m";
+	}
+	#profondeur-3:after,#profondeur-4:after{
+		content:"Sol moyennenement profond";
+	}
+	#subprofondeur-3:after{
+		content:"Profondeur de 60cm à 80cm";
+	}
+	#subprofondeur-4:after{
+		content:"Profondeur de 40cm à 60cm";
+	}
+	#profondeur-5:after,#profondeur-6:after{
+		content:"Sol peu profond";
+	}
+	#subprofondeur-5:after{
+		content:"Profondeur de 20cm à 40cm";
+	}
+	#subprofondeur-6:after{
+		content:"Profondeur de moins de 20cm";
+	}
+
+	/* Développement de profil */
+	#devp-M:after,#devp-N:after,#devp-R:after,#devp-I:after,#devp-B:after,#devp-F:after,#devp-G:after,#devp-J:after,#devp-K:after,#devp-A:after,#devp-H:after{
+		content:"Sol sans différenciation";
+	}
+	#subdevp-M:after{
+		content:"LITHOSOL (sol minéral brut, très superficiel)";
+	}
+    #subdevp-N:after{
+		content:"LITHOSOL (sol minéral brut, très superficiel)";
+	}
+    #subdevp-R:after{
+		content:"RANKOSOL (sol riche en matière organique, superficiel)";
+	}
+    #subdevp-B:after{
+		content:"BRUNISOL (sol brun)";
+	}
+    #subdevp-I:after{
+		content:"RENDOSOL (sol peu épais calcaire)";
+	}
+    #subdevp-F:after{
+		content:"BRUNISOL sur matériau altéré (sol brun)";
+	}
+    #subdevp-G:after{
+		content:"BRUNISOL sur altérite du matériau (sol brun)";
+	}
+    #subdevp-J:after{
+		content:"CALCOSOL (sol brun calcaire)";
+	}
+    #subdevp-K:after{
+		content:"CALCOSOL (sol brun calcique)";
+	}
+    #subdevp-A:after{
+		content:"ALOCRISOL (sol brun acide)";
+	}
+    #subdevp-K:after{
+		content:"VERTISOL (sol riche en argile)";
+	}
+
+    #devp-C:after,#devp-L:after,#devp-D:after,#devp-E:after{
+		content:"Sol lessivé éventuellement dégradé";
+	}
+	#subdevp-C:after{
+		content:"NEOLUVISOL (légèrement enrichi en argile en profondeur)";
+	}
+    #subdevp-L:after{
+		content:"LUVISOL TYPIQUE (nettement enrichi en argile en profondeur)";
+	}
+	#subdevp-D:after{
+		content:"LUVISOL faiblement dégradé (début de blanchiment sous l’horizon travaillé)";
+	}
+	#subdevp-E:after{
+		content:"LUVISOL DEGRADE (blanchi et limoneux sous l’horizon travaillé)";
+	}
+
+    #devp-P:after,#devp-Y:after{
+		content:"Sol très différenciés";
+	}
+	#subdevp-P:after{
+		content:"PODZOSOL (sols acides)";
+	}
+    #subdevp-Y:after{
+		content:"PLANOSOL (sol très argileux en profondeur) ";
+	}
+
+    #devp-U:after,#devp-V:after,#devp-W:after,#devp-S:after,#devp-T:after,#devp-Z:after{
+		content:"Sol d'apport";
+	}
+	#subdevp-U:after{
+		content:"COLLUVIOSOL (sol d'apport colluvial)";
+	}
+	#subdevp-V:after{
+		content:"FLUVIOSOL-COLLUVIOSOL (sol d'apport alluvial et colluvial)";
+	}
+	#subdevp-W:after{
+		content:"FLUVIOSOL-COLLUVIOSOL argileux (sol d'apport alluvial et colluvial à texture très argileuse)";
+	}
+    #subdevp-S:after{
+		content:"THALASSOSOL ou SALISOL (sol salé)";
+	}
+    #subdevp-T:after{
+		content:"HISTOSOL (tourbe ou sol tourbeux)";
+	}
+    #subdevp-Z:after{
+		content:"ANTHROPOSOL (remblais, déblais)";
+	}
+
+	/* Matériau géologique */
+	#matgeo-D:after{
+		content:"Dune sableuse d'origine marine";
+	}
+	#matgeo-H:after{
+		content:"Tourbe";
+	}
+	#matgeo-L:after{
+		content:"Limon";
+	}
+	#matgeo-M:after{
+		content:"Marais (type marais du Mont Saint-Michel)";
+	}
+	#matgeo-S:after{
+		content:"Sable";
+	}
+	#matgeo-T:after{
+		content:"Terrasse caillouteuse";
+	}
+	#matgeo-U:after{
+		content:"Matériau d'apport colluvial";
+	}
+	#matgeo-V:after{
+		content:"Matériau d'apport alluvial";
+	}
+	#matgeo-X:after{
+		content:"Quartz et Poudingue";
+	}
+	#matgeo-A:after{
+		content:"Argile, Altérite";
+	}
+	#matgeo-Z:after{
+		content:"Matériau remanié par l'homme";
+	}
+	#matgeo-B:after{
+		content:"Cuirasse ferrugineuse";
+	}
+	#matgeo-C:after{
+		content:"Calcaire";
+	}
+	#matgeo-E:after{
+		content:"Eboulis de pente";
+	}
+	#matgeo-N:after{
+		content:"Schiste tendre (type briovérien)";
+	}
+	#matgeo-O:after{
+		content:"Schiste moyen (type Angers)";
+	}
+	#matgeo-P:after{
+		content:" Schiste dur (type Pont-Réan)";
+	}
+	#matgeo-Q:after{
+		content:"Grès dur";
+	}
+	#matgeo-R:after{
+		content:"Schiste gréseux";
+	}
+	#matgeo-F:after{
+		content:"Micaschiste";
+	}
+	#matgeo-G:after{
+		content:"Granite";
+	}
+	#matgeo-I:after{
+		content:"Gneiss";
+	}
+	#matgeo-Y:after{
+		content:"Roches volcaniques";
+	}
+
+	/* Hydromorphie */
+	#hydro-0:after,#hydro-1:after,#hydro-2:after{
+		content:"SOLS BIEN DRAINES";
+	}
+	#subhydro-0:after{
+		content:"Absence, couleur homogène sans tache";
+	}
+	#subhydro-1:after{
+		content:"Traits rédoxiques à une profondeur supérieure à 80 cm de faible intensité";
+	}
+	#subhydro-2:after{
+		content:"Traits rédoxiques à une profondeur supérieure à 80 cm de forte intensité";
+	}
+
+	#hydro-3:after{
+		content:"Sol PEU HYDROMORPHE";
+	}
+	#subhydro-3:after{
+		content:"Traits rédoxiques à une profondeur comprise entre 40 et 80 cm de faible intensité";
+	}
+	#hydro-4:after{
+		content:"Sol MOYENNEMENT HYDROMORPHE";
+	}
+	#subhydro-4:after{
+		content:"Traits rédoxiques à une profondeur comprise entre 40 et 80 cm de forte intensité";
+	}
+	#hydro-5:after,#hydro-6:after,#hydro-7:after,#hydro-8:after,#hydro-9:after{
+		content:"Sol HYDROMORPHE";
+	}
+	#subhydro-5:after{
+		content:"Traits rédoxiques dès la surface de faible intensité";
+	}
+	#subhydro-6:after{
+		content:"Traits rédoxiques apparaissant dès la surface, de forte intensité";
+	}
+	#subhydro-7:after{
+		content:"Traits rédoxiques sur toute l’épaisseur du sol, traits réductiques en surface";
+	}
+	#subhydro-8:after{
+		content:"Traits réductiques ou histiques (tourbe), apparaissant en profondeur";
+	}
+	#subhydro-9:after{
+		content:"Traits réductiques ou histiques (tourbe), apparaissant à faible profondeur";
+	}
+
+</style>
+
+<script type="text/javascript">
+	function getNum(val) {
+	if (isNaN(val)) {
+		return 0;
+	} 
+		return val;
+	}
+
+	var hydroBarsize = getNum({{HYD}})*100/9;
+	document.getElementById('barHydro').style.width = hydroBarsize+"%";
+
+	var profBarsize = (getNum({{PROF}})-1)*100/5;
+	document.getElementById('barProf').style.width = profBarsize+"%";
+
+/* Récupération des infos supplémentaires dans une table JSON */
+
+$.getJSON("https://api.geosas.fr/sol?service=WPS&version=1.0.0&request=execute&identifier=getuts&datainputs=code_uts={{UTS}}&rawdataoutput=getuts", function(data){
+
+	var name_uts = data.nom_uts;
+	document.getElementById('nameUTS_{{UTS}}').innerHTML = name_uts;
+
+    });
+
+</script>
+
+{{/features}}

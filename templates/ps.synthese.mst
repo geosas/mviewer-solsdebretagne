@@ -1,0 +1,1036 @@
+<!-- *** TEMPLATE / Propriétés des sols >> Synthèse *** --> 
+
+{{#features}}
+<!-- Liens vers les feuilles de style externes (CSS)-->
+<link href="https://geosas.fr/apps/sdb/css/accordion_style.css" rel="stylesheet">
+
+<li class="item container-template" style="width:100%;">
+	<div id="backgroundTitleSynth">
+		<div class="title-temp">Propriétés des sols</div>
+		<div class="subtitle-temp">Valeurs affichées pour le pixel sélectionné</div>
+	</div>	
+
+    <p>Veuillez sélectionner un pixel pour afficher les propriétés des sols</p>
+
+	<!-- Collapse -->
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<!-- CEC -->
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingCEC">
+			<h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCEC" aria-expanded="true" aria-controls="collapseCEC">
+				Capacité d'échange cationique (cmol(+)/kg)
+				</a>
+			</h4>
+			</div>
+			<div id="collapseCEC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingCEC">
+				<div class="panel-body">
+					<div id="idChartCEC">
+						<canvas class="chart" id="GraphBarCEC" height="150"></canvas>
+					</div>
+					<div class="textChart">
+						<div class="title-chart">Répartition de capacité d'échange cationique selon la profondeur du sol</div>
+						<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.CEC -->
+		<!-- Ph -->
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingPh">
+			<h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePh" aria-expanded="true" aria-controls="collapsePh">
+				pH
+				</a>
+			</h4>
+			</div>
+			<div id="collapsePh" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingPh">
+				<div class="panel-body">
+					<div id="idChartPH">
+						<canvas class="chart" id="GraphBarPH" height="150"></canvas>
+					</div>
+                    <div class="textChart">
+						<div class="title-chart">Répartition du pH selon la profondeur du sol</div>
+						<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.Ph -->
+		<!-- SOC -->
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingSOC">
+			<h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSOC" aria-expanded="true" aria-controls="collapseSOC">
+				Carbone organique (g/kg)
+				</a>
+			</h4>
+			</div>
+			<div id="collapseSOC" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSOC">
+				<div class="panel-body">
+					<div id="idChartSOC">
+						<canvas class="chart" id="GraphBarSOC" height="150"></canvas>
+					</div>
+					<div class="textChart">
+						<div class="title-chart">Répartition du carbone organique selon la profondeur du sol</div>
+						<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.SOC -->
+		<!-- EG -->
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingEG">
+			<h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEG" aria-expanded="true" aria-controls="collapseEG">
+				Élements grossiers (%)
+				</a>
+			</h4>
+			</div>
+			<div id="collapseEG" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEG">
+				<div class="panel-body">
+					<div id="idChartEG">
+						<canvas class="chart" id="GraphBarEG" height="150"></canvas>
+					</div>
+					<div class="textChart">
+						<div class="title-chart">Répartition de la proportion des élements grossiers selon la profondeur du sol</div>
+						<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.EG -->
+		<!-- Sable -->
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingSable">
+			<h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSable" aria-expanded="true" aria-controls="collapseSable">
+				Sable (%)
+				</a>
+			</h4>
+			</div>
+			<div id="collapseSable" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSable">
+				<div class="panel-body">
+					<div id="idChartSable">
+						<canvas class="chart" id="GraphBarSable" height="150"></canvas>
+					</div>
+					<div class="textChart">
+						<div class="title-chart">Répartition de la proportion de sable selon la profondeur du sol</div>
+						<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.Sable -->
+		<!-- Limon -->
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingLimon">
+			<h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseLimon" aria-expanded="true" aria-controls="collapseLimon">
+				Limon (%)
+				</a>
+			</h4>
+			</div>
+			<div id="collapseLimon" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingLimon">
+				<div class="panel-body">
+					<div id="idChartLimon">
+						<canvas class="chart" id="GraphBarLimon" height="150"></canvas>
+					</div>
+					<div class="textChart">
+						<div class="title-chart">Répartition de la proportion de limon selon la profondeur du sol</div>
+						<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.Limon -->
+		<!-- Argile -->
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="headingArgile">
+			<h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseArgile" aria-expanded="true" aria-controls="collapseArgile">
+				Argile (%)
+				</a>
+			</h4>
+			</div>
+			<div id="collapseArgile" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingArgile">
+				<div class="panel-body">
+					<div id="idChartArgile">
+						<canvas class="chart" id="GraphBarArgile" height="150"></canvas>
+					</div>
+					<div class="textChart">
+						<div class="title-chart">Répartition de la proportion d'argile selon la profondeur du sol</div>
+						<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.Argile -->
+	</div>
+	<!-- /.Collapse -->
+</li>
+<style>
+
+/* Import des fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Définition des variables */
+:root {
+	--font-theme: 'Roboto', sans-serif;
+	--font-condensed-theme: 'Roboto Condensed', sans-serif;
+	--color-theme: #6c675c;
+}
+
+.container-template {
+	padding: 15px;
+}
+
+/* Titres et texte */
+#backgroundTitleSynth {
+	background-image: url(https://geosas.fr/apps/sdb/img/soil_synthese.svg);
+    padding: 10px 0px 10px 65px;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: left;
+	margin-bottom: 20px;
+}
+
+.title-temp {
+	font-family: var(--font-condensed-theme);
+    text-transform: uppercase;
+    color: var(--color-theme);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.subtitle-temp {
+	font-family: var(--font-condensed-theme);
+	color: var(--color-theme);
+	font-size: 13px;
+    font-style: italic;
+}
+
+/* Chart */
+.textChart {
+    text-align: center;
+    margin: 10px 0;
+	color: var(--color-theme);
+}
+
+.title-chart {
+    font-weight: 600;
+}
+
+</style>
+<script>
+// CHART -- CEC
+// Requête Get CEC
+let maCarte = mviewer.getMap();
+
+
+maCarte.on('click', function(evt) {
+	var lonlat = ol.proj.toLonLat(evt.coordinate);
+    var lonlat3857 = ol.proj.transform(lonlat, 'EPSG:4326', 'EPSG:3857');
+    var lon = lonlat3857[0];
+    var lat = lonlat3857[1];
+    var bbox = (lon - 5) + ',' + (lat - 5) + ',' + (lon + 5) + ',' + (lat + 5);
+      
+	let urlCEC = `https://geosas.fr/geoserver/ows?SERVICE=WMS&LAYERS=sdb%3Acec_6_bandes&QUERY_LAYERS=sdb%3Acec_6_bandes&STYLES=&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetFeatureInfo&EXCEPTIONS=XML&BBOX=${bbox}&FEATURE_COUNT=1&HEIGHT=1&WIDTH=1&FORMAT=image%2Fpng&INFO_FORMAT=application/json&CRS=EPSG%3A3857&I=1&J=1`;
+	
+    // Requête GETJSON
+	$.getJSON(urlCEC, function(data) {
+		// Couleurs du graphique CEC
+		function getColorBarCEC(value) {
+			var color;
+			if (value < 5) {
+				color = '#faebdd';
+			} else if (value >= 5 && value < 7.5) {
+				color = '#f6ac84';
+			} else if (value >= 7.5 && value < 10) {
+				color = '#f16144';
+			} else if (value >= 10 && value < 12.5) {
+				color = '#cb1b4f';
+			} else if (value >= 12.5 && value < 15) {
+				color = '#851e5a';
+			} else if (value >= 15 && value < 20) {
+				color = '#401b44';
+			} else if (value >= 20) {
+				color = '#03051a';
+			};
+			return color;
+		}
+
+		var features = {};
+		features = data.features;
+		var dataCECval = features.map(function(obj) {
+			return obj.properties;
+		});        
+		var dataCEC = dataCECval[0];
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarCEC = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarCEC = [
+			parseFloat(dataCEC.Band1),
+			parseFloat(dataCEC.Band2),
+			parseFloat(dataCEC.Band3),
+			parseFloat(dataCEC.Band4),
+			parseFloat(dataCEC.Band5),
+			parseFloat(dataCEC.Band6)
+		];
+		var colorsBarCEC = [
+			getColorBarCEC(dataCEC.Band1),
+			getColorBarCEC(dataCEC.Band2),
+			getColorBarCEC(dataCEC.Band3),
+			getColorBarCEC(dataCEC.Band4),
+			getColorBarCEC(dataCEC.Band5),
+			getColorBarCEC(dataCEC.Band6)
+		];
+
+		var graph_bar_cec = {};
+		graph_bar_cec.getData = function() {
+			var data = {
+				chart_bar_CEC: {
+					labels: labelsBarCEC,
+					colors: colorsBarCEC,
+					data: datasetBarCEC
+				}
+			};
+			console.log(data);
+			graph_bar_cec.drawChart(data);
+		};
+    
+		graph_bar_cec.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarCEC");
+			var GraphBarCEC = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_CEC.labels,
+					datasets: [{
+						label: "CEC en cmol(+)/kg",
+						backgroundColor: data.chart_bar_CEC.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_CEC.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						xAxes: [{
+							stacked: true
+						}],
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+							stacked: true,
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " cmol(+)/kg";
+							}
+						}
+					}
+				}
+			});
+		};
+		if (typeof Chart === 'function') {
+			graph_bar_cec.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_cec.getData();
+			});
+		}
+	});
+
+    let urlpH = `https://geosas.fr/geoserver/ows?SERVICE=WMS&LAYERS=sdb%3Aph_6_bandes&QUERY_LAYERS=sdb%3Aph_6_bandes&STYLES=&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetFeatureInfo&EXCEPTIONS=XML&BBOX=${bbox}&FEATURE_COUNT=1&HEIGHT=1&WIDTH=1&FORMAT=image%2Fpng&INFO_FORMAT=application/json&CRS=EPSG%3A3857&I=1&J=1`;
+	
+    // Requête GETJSON
+	$.getJSON(urlpH, function(data) {
+		// Couleurs du graphique PH
+		function getColorBarPH(value) {
+			var color;
+            if (value < 4.5) {
+                color = '#997232';
+            } else if (value >= 4.5 && value < 5) {
+                color = '#e9af55';
+            } else if (value >= 5 && value < 5.5) {
+                color = '#fffaf0';
+            } else if (value >= 5.5 && value < 6) {
+                color = '#a0dab5';
+            } else if (value >= 6 && value < 6.5) {
+                color = '#3cab6e';
+            } else if (value >= 6.5) {
+                color = '#177441';
+            };
+            return color;
+		}
+
+		var features = {};
+		features = data.features;
+		var dataPHval = features.map(function(obj) {
+			return obj.properties;
+		});        
+		var dataPH = dataPHval[0];
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarPH = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarPH = [
+			parseFloat(dataPH.Band1),
+			parseFloat(dataPH.Band2),
+			parseFloat(dataPH.Band3),
+			parseFloat(dataPH.Band4),
+			parseFloat(dataPH.Band5),
+			parseFloat(dataPH.Band6)
+		];
+		var colorsBarPH = [
+			getColorBarPH(dataPH.Band1),
+			getColorBarPH(dataPH.Band2),
+			getColorBarPH(dataPH.Band3),
+			getColorBarPH(dataPH.Band4),
+			getColorBarPH(dataPH.Band5),
+			getColorBarPH(dataPH.Band6)
+		];
+		var graph_bar_PH = {};
+		graph_bar_PH.getData = function() {
+			var data = {
+				chart_bar_PH: {
+					labels: labelsBarPH,
+					colors: colorsBarPH,
+					data: datasetBarPH
+				}
+			};
+			console.log(data);
+			graph_bar_PH.drawChart(data);
+		};
+
+		graph_bar_PH.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarPH");
+			var GraphBarPH = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_PH.labels,
+					datasets: [{
+						label: "PH en cmol(+)/kg",
+						backgroundColor: data.chart_bar_PH.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_PH.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						xAxes: [{
+							stacked: true
+						}],
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+							stacked: true,
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " cmol(+)/kg";
+							}
+						}
+					}
+				}
+			});
+		};
+		if (typeof Chart === 'function') {
+			graph_bar_PH.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_PH.getData();
+			});
+		}
+	});
+
+	let urlSOC = `https://geosas.fr/geoserver/ows?SERVICE=WMS&LAYERS=sdb%3Acarbone_organique_6_bandes&QUERY_LAYERS=sdb%3Acarbone_organique_6_bandes&STYLES=&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetFeatureInfo&EXCEPTIONS=XML&BBOX=${bbox}&FEATURE_COUNT=1&HEIGHT=1&WIDTH=1&FORMAT=image%2Fpng&INFO_FORMAT=application/json&CRS=EPSG%3A3857&I=1&J=1`;
+	
+    // Requête GETJSON
+	$.getJSON(urlSOC, function(data) {
+		// Couleurs du graphique CEC
+		function getColorBarSOC(value) {
+			var color;
+			if (value < 5) {
+				color = '#e5f5f9';
+			} else if (value >= 5 && value < 10) {
+				color = '#7de5a9';
+			} else if (value >= 10 && value < 20) {
+				color = '#4ade88';
+			} else if (value >= 20 && value < 30) {
+				color = '#25bf65';
+			} else if (value >= 30 && value < 40) {
+				color = '#108b43';
+			}  else if (value >= 40) {
+				color = '#4e4e4e';
+			};
+			return color;
+		}
+
+		var features = {};
+		features = data.features;
+		var dataSOCval = features.map(function(obj) {
+			return obj.properties;
+		});        
+		var dataSOC = dataSOCval[0];
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarSOC = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarSOC = [
+			parseFloat(dataSOC.Band1),
+			parseFloat(dataSOC.Band2),
+			parseFloat(dataSOC.Band3),
+			parseFloat(dataSOC.Band4),
+			parseFloat(dataSOC.Band5),
+			parseFloat(dataSOC.Band6)
+		];
+		var colorsBarSOC = [
+			getColorBarSOC(dataSOC.Band1),
+			getColorBarSOC(dataSOC.Band2),
+			getColorBarSOC(dataSOC.Band3),
+			getColorBarSOC(dataSOC.Band4),
+			getColorBarSOC(dataSOC.Band5),
+			getColorBarSOC(dataSOC.Band6)
+		];
+
+		var graph_bar_soc = {};
+		graph_bar_soc.getData = function() {
+			var data = {
+				chart_bar_SOC: {
+					labels: labelsBarSOC,
+					colors: colorsBarSOC,
+					data: datasetBarSOC
+				}
+			};
+			console.log(data);
+			graph_bar_soc.drawChart(data);
+		};
+    
+		graph_bar_soc.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarSOC");
+			var GraphBarSOC = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_SOC.labels,
+					datasets: [{
+						label: "",
+						backgroundColor: data.chart_bar_SOC.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_SOC.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						xAxes: [{
+							stacked: true
+						}],
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+							stacked: true,
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " g/kg";
+							}
+						}
+					}
+				}
+			});
+		};
+		if (typeof Chart === 'function') {
+			graph_bar_soc.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_soc.getData();
+			});
+		}
+	});
+	let urlEG = `https://geosas.fr/geoserver/ows?SERVICE=WMS&LAYERS=sdb%3Aelements_grossiers_6_bandes&QUERY_LAYERS=sdb%3Aelements_grossiers_6_bandes&STYLES=&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetFeatureInfo&EXCEPTIONS=XML&BBOX=${bbox}&FEATURE_COUNT=1&HEIGHT=1&WIDTH=1&FORMAT=image%2Fpng&INFO_FORMAT=application/json&CRS=EPSG%3A3857&I=1&J=1`;
+	
+    // Requête GETJSON
+	$.getJSON(urlEG, function(data) {
+		// Couleurs du graphique EG
+		function getColorBarEG(value) {
+			var color;
+        if (value < 5) {
+            color = '#e2e2e2';
+        } else if (value >= 5 && value < 10) {
+            color = '#bababa';
+        } else if (value >= 10 && value < 20) {
+            color = '#9f9f9f';
+        } else if (value >= 20 && value < 30) {
+            color = '#7c7c7c';
+        } else if (value >= 30) {
+            color = '#4e4e4e';
+        };
+        return color;
+		}
+
+		var features = {};
+		features = data.features;
+		var dataEGval = features.map(function(obj) {
+			return obj.properties;
+		});        
+		var dataEG = dataEGval[0];
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarEG = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarEG = [
+			parseFloat(dataEG.Band1),
+			parseFloat(dataEG.Band2),
+			parseFloat(dataEG.Band3),
+			parseFloat(dataEG.Band4),
+			parseFloat(dataEG.Band5),
+			parseFloat(dataEG.Band6)
+		];
+		var colorsBarEG = [
+			getColorBarEG(dataEG.Band1),
+			getColorBarEG(dataEG.Band2),
+			getColorBarEG(dataEG.Band3),
+			getColorBarEG(dataEG.Band4),
+			getColorBarEG(dataEG.Band5),
+			getColorBarEG(dataEG.Band6)
+		];
+
+		var graph_bar_EG = {};
+		graph_bar_EG.getData = function() {
+			var data = {
+				chart_bar_EG: {
+					labels: labelsBarEG,
+					colors: colorsBarEG,
+					data: datasetBarEG
+				}
+			};
+			console.log(data);
+			graph_bar_EG.drawChart(data);
+		};
+    
+		graph_bar_EG.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarEG");
+			var GraphBarEG = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_EG.labels,
+					datasets: [{
+						label: "",
+						backgroundColor: data.chart_bar_EG.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_EG.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						xAxes: [{
+							stacked: true
+						}],
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+							stacked: true,
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " %";
+							}
+						}
+					}
+				}
+			});
+		};
+		if (typeof Chart === 'function') {
+			graph_bar_EG.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_EG.getData();
+			});
+		}
+	});
+
+	let urlSable = `https://geosas.fr/geoserver/ows?SERVICE=WMS&LAYERS=sdb%3Asable_6_bandes&QUERY_LAYERS=sdb%3Asable_6_bandes&STYLES=&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetFeatureInfo&EXCEPTIONS=XML&BBOX=${bbox}&FEATURE_COUNT=1&HEIGHT=1&WIDTH=1&FORMAT=image%2Fpng&INFO_FORMAT=application/json&CRS=EPSG%3A3857&I=1&J=1`;
+	
+    // Requête GETJSON
+	$.getJSON(urlSable, function(data) {
+		// Couleurs du graphique Sable
+		function getColorBarSable(value) {
+			var color;
+            if (value < 20) {
+                color = '#fff7de';
+            } else if (value >= 20 && value < 30) {
+                color = '#e2ceb0';
+            } else if (value >= 30 && value < 40) {
+                color = '#b49363';
+            }  else if (value >= 40) {
+                color = '#785c33';
+            };
+            return color;
+		}
+
+		var features = {};
+		features = data.features;
+		var dataSableval = features.map(function(obj) {
+			return obj.properties;
+		});        
+		var dataSable = dataSableval[0];
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarSable = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarSable = [
+			parseFloat(dataSable.Band1),
+			parseFloat(dataSable.Band2),
+			parseFloat(dataSable.Band3),
+			parseFloat(dataSable.Band4),
+			parseFloat(dataSable.Band5),
+			parseFloat(dataSable.Band6)
+		];
+		var colorsBarSable = [
+			getColorBarSable(dataSable.Band1),
+			getColorBarSable(dataSable.Band2),
+			getColorBarSable(dataSable.Band3),
+			getColorBarSable(dataSable.Band4),
+			getColorBarSable(dataSable.Band5),
+			getColorBarSable(dataSable.Band6)
+		];
+
+		var graph_bar_Sable = {};
+		graph_bar_Sable.getData = function() {
+			var data = {
+				chart_bar_sable: {
+					labels: labelsBarSable,
+					colors: colorsBarSable,
+					data: datasetBarSable
+				}
+			};
+			console.log(data);
+			graph_bar_Sable.drawChart(data);
+		};
+    
+		graph_bar_Sable.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarSable");
+			var GraphBarSable = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_sable.labels,
+					datasets: [{
+						label: "",
+						backgroundColor: data.chart_bar_sable.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_sable.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						xAxes: [{
+							stacked: true
+						}],
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+							stacked: true,
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " %";
+							}
+						}
+					}
+				}
+			});
+		};
+		if (typeof Chart === 'function') {
+			graph_bar_Sable.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_Sable.getData();
+			});
+		}
+	});
+
+	let urlLimon = `https://geosas.fr/geoserver/ows?SERVICE=WMS&LAYERS=sdb%3Alimon_6_bandes&QUERY_LAYERS=sdb%3Alimon_6_bandes&STYLES=&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetFeatureInfo&EXCEPTIONS=XML&BBOX=${bbox}&FEATURE_COUNT=1&HEIGHT=1&WIDTH=1&FORMAT=image%2Fpng&INFO_FORMAT=application/json&CRS=EPSG%3A3857&I=1&J=1`;
+	
+    // Requête GETJSON
+	$.getJSON(urlLimon, function(data) {
+		// Couleurs du graphique Limon
+		function getColorBarLimon(value) {
+			 var color;
+			if (value < 30) {
+				color = '#e4d2e7';
+			} else if (value >= 30 && value < 40) {
+				color = '#ca9ecc';
+			} else if (value >= 40 && value < 50) {
+				color = '#9c4b8d';
+			} else if (value >= 50 && value < 60) {
+				color = '#703678';
+			} else if (value >= 60) {
+				color = '#401f40';
+			};
+			return color;
+		}
+
+		var features = {};
+		features = data.features;
+		var dataLimonval = features.map(function(obj) {
+			return obj.properties;
+		});        
+		var dataLimon = dataLimonval[0];
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarLimon = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarLimon = [
+			parseFloat(dataLimon.Band1),
+			parseFloat(dataLimon.Band2),
+			parseFloat(dataLimon.Band3),
+			parseFloat(dataLimon.Band4),
+			parseFloat(dataLimon.Band5),
+			parseFloat(dataLimon.Band6)
+		];
+		var colorsBarLimon = [
+			getColorBarLimon(dataLimon.Band1),
+			getColorBarLimon(dataLimon.Band2),
+			getColorBarLimon(dataLimon.Band3),
+			getColorBarLimon(dataLimon.Band4),
+			getColorBarLimon(dataLimon.Band5),
+			getColorBarLimon(dataLimon.Band6)
+		];
+
+		var graph_bar_Limon = {};
+		graph_bar_Limon.getData = function() {
+			var data = {
+				chart_bar_limon: {
+					labels: labelsBarLimon,
+					colors: colorsBarLimon,
+					data: datasetBarLimon
+				}
+			};
+			console.log(data);
+			graph_bar_Limon.drawChart(data);
+		};
+    
+		graph_bar_Limon.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarLimon");
+			var GraphBarLimon = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_limon.labels,
+					datasets: [{
+						label: "",
+						backgroundColor: data.chart_bar_limon.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_limon.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						xAxes: [{
+							stacked: true
+						}],
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+							stacked: true,
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " g/kg";
+							}
+						}
+					}
+				}
+			});
+		};
+		if (typeof Chart === 'function') {
+			graph_bar_Limon.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_Limon.getData();
+			});
+		}
+	});
+
+	let urlArgile = `https://geosas.fr/geoserver/ows?SERVICE=WMS&LAYERS=sdb%3Aargile_6_bandes&QUERY_LAYERS=sdb%3Aargile_6_bandes&STYLES=&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetFeatureInfo&EXCEPTIONS=XML&BBOX=${bbox}&FEATURE_COUNT=1&HEIGHT=1&WIDTH=1&FORMAT=image%2Fpng&INFO_FORMAT=application/json&CRS=EPSG%3A3857&I=1&J=1`;
+	
+    // Requête GETJSON
+	$.getJSON(urlArgile, function(data) {
+		// Couleurs du graphique Argile
+		function getColorBarArgile(value) {
+			var color;
+            if (value < 15) {
+                color = '#feedde';
+            } else if (value >= 15 && value < 20) {
+                color = '#fab694';
+            } else if (value >= 20 && value < 25) {
+                color = '#e86c33';
+            }  else if (value >= 25) {
+                color = '#803917';
+            };
+            return color;
+		}
+
+		var features = {};
+		features = data.features;
+		var dataArgileval = features.map(function(obj) {
+			return obj.properties;
+		});        
+		var dataArgile = dataArgileval[0];
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarArgile = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarArgile = [
+			parseFloat(dataArgile.Band1),
+			parseFloat(dataArgile.Band2),
+			parseFloat(dataArgile.Band3),
+			parseFloat(dataArgile.Band4),
+			parseFloat(dataArgile.Band5),
+			parseFloat(dataArgile.Band6)
+		];
+		var colorsBarArgile = [
+			getColorBarArgile(dataArgile.Band1),
+			getColorBarArgile(dataArgile.Band2),
+			getColorBarArgile(dataArgile.Band3),
+			getColorBarArgile(dataArgile.Band4),
+			getColorBarArgile(dataArgile.Band5),
+			getColorBarArgile(dataArgile.Band6)
+		];
+
+		var graph_bar_Argile = {};
+		graph_bar_Argile.getData = function() {
+			var data = {
+				chart_bar_argile: {
+					labels: labelsBarArgile,
+					colors: colorsBarArgile,
+					data: datasetBarArgile
+				}
+			};
+			console.log(data);
+			graph_bar_Argile.drawChart(data);
+		};
+    
+		graph_bar_Argile.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarArgile");
+			var GraphBarArgile = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_argile.labels,
+					datasets: [{
+						label: "",
+						backgroundColor: data.chart_bar_argile.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_argile.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						xAxes: [{
+							stacked: true
+						}],
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+							stacked: true,
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " g/kg";
+							}
+						}
+					}
+				}
+			});
+		};
+		if (typeof Chart === 'function') {
+			graph_bar_Argile.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_Argile.getData();
+			});
+		}
+	});
+})
+
+</script>
+
+{{/features}}

@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <rdf:Description rdf:about="http://www.ilrt.bristol.ac.uk/people/cmdjb/">
+    <dc:title>Sols de Bretagne</dc:title>
+    <dc:creator>Agrocampus - UMR SAS</dc:creator>
+    <dc:publisher>anonymous</dc:publisher>
+    <dc:subject>Sols en Bretagne</dc:subject>
+    <dc:date>2020-09-12T10:21:51.893Z</dc:date>
+    </rdf:Description>
+    </rdf:RDF>
+</metadata>
+
+<application
+    title="Cartes des sols de Bretagne 2.0"
+    logo="https://geosas.fr/apps/sdb/img/SDB.logo_fonce.png"
+    help="https://geosas.fr/apps/sdb/aide.sdb.html"
+    style="https://geosas.fr/apps/sdb/css/sols_bretagne.css"
+    exportpng="true"
+    showhelp="true"
+    iconhelp="home"
+    measuretools="true"
+    togglealllayersfromtheme="false"
+    hideprotectedlayers="false">
+</application>
+
+<extensions>
+    <extension type="component" id="apisol" path="https://geosas.fr/apps/sdb/components"/>   
+    <extension type="component" id="plotly" path="https://geosas.fr/apps/sdb/addons"/>
+</extensions>
+
+<mapoptions maxzoom="20" projection="EPSG:3857" center="-307903.74898791354,6141345.088741366" zoom="9" />
+<!--<proxy url='../proxy/?url='/>-->
+<searchparameters bbox="false" localities="true" features="false" static="false"/>
+<olscompletion type="ban" url="https://api-adresse.data.gouv.fr/search/" attribution="La recherche d'adresse est un service proposé par l'API adresse.data.gouv.fr" />
+<baselayers style="default"> 
+    <baselayer type="WMTS" id="scan2" label="Cartes IGN"
+    title="GéoPortail" maxscale="2000"
+    thumbgallery="img/basemap/scan.jpg"
+    url="https://geobretagne.fr/geoportail/wmts"
+    layers="GEOGRAPHICALGRIDSYSTEMS.MAPS" format="image/jpeg"
+    visible="false" fromcapacity="false"
+    attribution="&lt;a href='http://www.geoportail.fr/' target='_blank'&gt;&lt;img src='https://api.ign.fr/geoportail/api/js/latest/theme/geoportal/img/logo_gp.gif'&gt;&lt;/a&gt;"
+    style="normal" matrixset="PM" maxzoom="22" />
+    <baselayer type="WMTS" id="ortho1"
+    label="Photo aérienne actuelle" title="GéoBretagne"
+    thumbgallery="img/basemap/ortho.jpg"
+    url="https://tile.geobretagne.fr/gwc02/service/wmts"
+    layers="satellite" format="image/png" visible="false"
+    attribution="&lt;a href='http://applications.region-bretagne.fr/geonetwork/?uuid=3a0ac2e3-7af1-4dec-9f36-dae6b5a8c731' target='_blank' &gt;partenaires GéoBretagne - IGN RGE BD ORTHO - PlanetObserver&lt;/a&gt;"
+    style="_null" matrixset="EPSG:3857" fromcapacity="false" />    
+    <baselayer  type="OSM" id="positron" 
+    label="Positron" 
+    title="CartoDb" 
+    thumbgallery="img/basemap/positron.png" 
+  url="https://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" maxzoom="20" 
+  visible="true" attribution="Map tiles by  &lt;a href='https://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='https://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" />
+  <baselayer  type="OSM" id="osm1" label="OpenStreetMap Hot" title="OpenStreetMap" thumbgallery="img/basemap/osm.png" 
+  url="http://{a-c}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png" 
+  attribution="© MapQuest. Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap &lt;/a>,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>Humanitarian OpenStreetMap Team &lt;/a>" visible="false"/> 
+</baselayers>
+
+<themes mini="false"> 
+  <theme id="theme-1" name="Cartes régionales" collapsed="false" icon="fas fa-caret-right">
+        <layer id="ucs_pp_bzh" name="Matériau parental dominant" type="wms"
+            expanded = "false" queryable="true" visible="true"    
+            exclusive = "true"   
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/cr.materiaux_dominants.sld"
+            attribution="Matériau parental dominant à partir duquel s'est formé le sol // Les entités représentent des UCS (Unité cartographique de sol) // Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/505375ac-6315-4484-b196-36db3ab459fa"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=505375ac-6315-4484-b196-36db3ab459fa">
+            <template url="https://geosas.fr/apps/sdb/templates/cr.caracteristiques_sol.mst"></template>
+        </layer>
+
+        <layer id="ucs_pp_bzh" name="Classe de texture dominante" type="wms"
+            expanded = "false" queryable="true"     
+            exclusive = "true"  
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl="https://geosas.fr/apps/sdb/img/triangle_GEPPA.png"
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/cr.textures_dominantes.sld"
+            attribution="Texture GEPPA dominante // Les entités représentent des UCS (Unité cartographique de sol) // Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/505375ac-6315-4484-b196-36db3ab459fa"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=505375ac-6315-4484-b196-36db3ab459fa">
+             <template url="https://geosas.fr/apps/sdb/templates/cr.caracteristiques_sol.mst"></template>
+        </layer>
+
+        <layer id="ucs_pp_bzh" name="Type de sol dominant" type="wms"
+            expanded = "false" queryable="true"     
+            exclusive = "true"  
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/cr.type_sols_dominants.sld"
+            attribution="Familles de sols dominants // Les entités représentent des UCS (Unité cartographique de sol) // Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/505375ac-6315-4484-b196-36db3ab459fa"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=505375ac-6315-4484-b196-36db3ab459fa">
+             <template url="https://geosas.fr/apps/sdb/templates/cr.caracteristiques_sol.mst"></template>
+        </layer>
+
+        <layer id="ucs_pp_bzh" name="Classe d'épaisseur dominante" type="wms"
+            expanded = "false" queryable="true" 
+            exclusive = "true"      
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/cr.epaisseurs_dominantes.sld"
+            attribution="Classes dominantes d'épaisseur de sol // Les entités représentent des UCS (Unité cartographique de sol) // Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/505375ac-6315-4484-b196-36db3ab459fa"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=505375ac-6315-4484-b196-36db3ab459fa">
+             <template url="https://geosas.fr/apps/sdb/templates/cr.caracteristiques_sol.mst"></template>
+        </layer>
+
+        <layer id="ucs_pp_bzh" name="Drainage naturel dominant" type="wms"
+            expanded = "false" queryable="true" 
+            exclusive = "true"      
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/cr.drainage_dominant.sld"
+            attribution="Drainage dominant // Les entités représentent des UCS (Unité cartographique de sol) // Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/505375ac-6315-4484-b196-36db3ab459fa"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=505375ac-6315-4484-b196-36db3ab459fa">
+             <template url="https://geosas.fr/apps/sdb/templates/cr.caracteristiques_sol.mst"></template>
+        </layer>
+
+        <layer id="ucs_pp_bzh" name="Entités paysagères" type="wms"
+            expanded = "false" queryable="true"       
+            exclusive = "true"
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/cr.entites_physiographiques.sld"
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+           metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/505375ac-6315-4484-b196-36db3ab459fa"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=505375ac-6315-4484-b196-36db3ab459fa">
+            <template url="https://geosas.fr/apps/sdb/templates/cr.entites_physiographiques.mst"></template>
+        </layer>
+    </theme> 
+    <theme id="theme-4" name="Propriétés des sols" collapsed="true" icon="fas fa-caret-right"> 
+        <group name="Capacité d'échange catonique (cmol/kg)" id="cec" >
+            <layer id="cec_6_bandes" name="CEC - Données raster 50m" type="wms"
+            expanded="true" queryable="true" visible="false"  
+            style="CEC_p1,CEC_p2,CEC_p3,CEC_p4,CEC_p5,CEC_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/6c071852-580a-47bb-85bb-5a886cde3971"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=6c071852-580a-47bb-85bb-5a886cde3971">
+            <template url=""></template>
+            </layer>
+            <layer id="stats_all_6prof_cec_comm" name="CEC - Médiane communale" type="wms"
+            expanded="true" queryable="true" visible="false"
+            exclusive="true"
+            style="CEC_communes_p1,CEC_communes_p2,CEC_communes_p3,CEC_communes_p4,CEC_communes_p5,CEC_communes_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            infopanel="bottom-panel"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/0b8851b3-5f29-49cc-a007-39726c1dee39"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=0b8851b3-5f29-49cc-a007-39726c1dee39">
+            <template url="https://geosas.fr/apps/sdb/templates/ps.cec_communes.mst"></template>
+            </layer>
+        </group>
+        <group name="Acidité du sol (pH)" id="ph" >
+            <layer id="ph_6_bandes" name="pH - Données raster 50m" type="wms"
+            expanded="true" queryable="true" visible="false"  
+            style="pH_p1,pH_p2,pH_p3,pH_p4,pH_p5,pH_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/45e9cb55-d144-46e2-a898-61682680729b"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=45e9cb55-d144-46e2-a898-61682680729b">
+            <template url=""></template>
+            </layer>
+            <layer id="stats_all_6prof_pH_comm" name="ph - Médiane communale" type="wms"
+            expanded="true" queryable="true" visible="false"
+            exclusive="true"
+            style="pH_comm_p1,pH_comm_p2,pH_comm_p3,pH_comm_p4,pH_comm_p5,pH_comm_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            infopanel="bottom-panel"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/b405effe-db38-4b09-b27e-35586eb54f22"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=b405effe-db38-4b09-b27e-35586eb54f22">
+            <template url="https://geosas.fr/apps/sdb/templates/ps.ph_communes.mst"></template>
+            </layer>
+        </group>
+         <group name="Carbone organique (g/kg)" id="soc" >
+            <layer id="carbone_organique_6_bandes" name="Carbone organique - Données raster 50m" type="wms"
+            expanded="true" queryable="true" visible="false"  
+            style="soc_p1,soc_p2,soc_p3,soc_p4,soc_p5,soc_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/659bf87a-1df0-42b7-ad02-8719d1924547"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=659bf87a-1df0-42b7-ad02-8719d1924547">
+            <template url=""></template>
+            </layer>
+            <layer id="stats_all_6prof_SOC_comm" name="Carbone organique - Médiane communale" type="wms"
+            expanded="true" queryable="true" visible="false"
+            exclusive="true"
+            style="SOC_communes_p1,SOC_communes_p2,SOC_communes_p3,SOC_communes_p4,SOC_communes_p5,SOC_communes_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            infopanel="bottom-panel"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/ac4f6c0d-15b1-47c6-bd9c-53b85077b3f2"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=ac4f6c0d-15b1-47c6-bd9c-53b85077b3f2">
+            <template url="https://geosas.fr/apps/sdb/templates/ps.soc_communes.mst"></template>
+            </layer>
+        </group>
+         <group name="Élements grossiers (%)" id="eg" >
+            <layer id="elements_grossiers_6_bandes" name="Élements grossiers - Données raster 50m" type="wms"
+            expanded="true" queryable="true" visible="false"  
+            style="eg_p1,eg_p2,eg_p3,eg_p4,eg_p5,eg_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/6ca6b852-2a9c-4397-93e1-338d05c77ca2"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=6ca6b852-2a9c-4397-93e1-338d05c77ca2">
+            <template url=""></template>
+            </layer>
+            <layer id="stats_all_6prof_EG_comm" name="Élements grossiers - Médiane communale" type="wms"
+            expanded="true" queryable="true" visible="false"
+            exclusive="true"
+            style="eg_communes_p1,eg_communes_p2,eg_communes_p3,eg_communes_p4,eg_communes_p5,eg_communes_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            infopanel="bottom-panel"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/c4b62be7-da92-4e40-bf2c-0e27ab9f3c39"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=c4b62be7-da92-4e40-bf2c-0e27ab9f3c39">
+            <template url="https://geosas.fr/apps/sdb/templates/ps.eg_communes.mst"></template>
+            </layer>
+        </group>
+         <group name="Sable (%)" id="sable" >
+            <layer id="sable_6_bandes" name="Sable - Données raster 50m" type="wms"
+            expanded="true" queryable="true" visible="false"  
+            style="sable_p1,sable_p2,sable_p3,sable_p4,sable_p5,sable_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/889729be-e44f-4895-be37-f193a95388d3"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=889729be-e44f-4895-be37-f193a95388d3">
+            <template url=""></template>
+            </layer>
+            <layer id="stats_all_6prof_S_comm" name="Sable - Médiane communale" type="wms"
+            expanded="true" queryable="true" visible="false"
+            exclusive="true"
+            style="Sable_communes_p1,Sable_communes_p2,Sable_communes_p3,Sable_communes_p4,Sable_communes_p5,Sable_communes_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            infopanel="bottom-panel"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/86153602-372e-49b9-b22f-a90dd9f2fe36"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=86153602-372e-49b9-b22f-a90dd9f2fe36">
+            <template url="https://geosas.fr/apps/sdb/templates/ps.sable_communes.mst"></template>
+            </layer>
+        </group>
+         <group name="Limon (%)" id="limon" >
+            <layer id="limon_6_bandes" name="Limon - Données raster 50m" type="wms"
+            expanded="true" queryable="true" visible="false"  
+            style="limon_p1,limon_p2,limon_p3,limon_p4,limon_p5,limon_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/2aca277e-0403-4a3d-84fb-27bf09fff945"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2aca277e-0403-4a3d-84fb-27bf09fff945">
+            <template url=""></template>
+            </layer>
+            <layer id="Limon_stats_6prof_commune" name="Limon - Médiane communale" type="wms"
+            expanded="true" queryable="true" visible="false"
+            exclusive="true"
+            style="Limon_communes_p1,Limon_communes_p2,Limon_communes_p3,Limon_communes_p4,Limon_communes_p5,Limon_communes_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            infopanel="bottom-panel"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/f1dfb915-f6af-4ed5-9868-6d078e79c7cf"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=f1dfb915-f6af-4ed5-9868-6d078e79c7cf">
+            <template url="https://geosas.fr/apps/sdb/templates/ps.limon_communes.mst"></template>
+            </layer>
+        </group>
+         <group name="Argile (%)" id="argile" >
+            <layer id="argile_6_bandes" name="Argile - Données raster 50m" type="wms"
+            expanded="true" queryable="true" visible="false"  
+            style="argile_p1,argile_p2,argile_p3,argile_p4,argile_p5,argile_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/ef33bd8b-0bad-4c8b-9cb1-c95625c15436"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=ef33bd8b-0bad-4c8b-9cb1-c95625c15436">
+            <template url=""></template>
+            </layer>
+            <layer id="Argile_stats_6prof_commune" name="Argile - Médiane communale" type="wms"
+            expanded="true" queryable="true" visible="false"
+            exclusive="true"
+            style="Argile_communes_p1,Argile_communes_p2,Argile_communes_p3,Argile_communes_p4,Argile_communes_p5,Argile_communes_p6" 
+            stylesalias="Profondeur 0-5 cm,Profondeur 5-15 cm,Profondeur 15-30 cm,Profondeur 30-60 cm,Profondeur 60-100 cm,Profondeur 100-200 cm"
+            opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            infopanel="bottom-panel"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/bd83f813-0fe8-4f34-bfdb-b317fac19fa9"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=bd83f813-0fe8-4f34-bfdb-b317fac19fa9">
+            <template url="https://geosas.fr/apps/sdb/templates/ps.argile_communes.mst"></template>
+            </layer>
+        </group>
+        <group name="Autres" id="other" >
+            <layer id="alea" name="Aléa érosion" type="wms"
+            expanded = "false" queryable="false" visible="false"  
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            stylesalias=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata=""
+            metadata-csw="">
+            <template url=""></template>
+        </layer>
+        <layer id="sensibilite" name="Sensibilité érosion" type="wms"
+            expanded = "false" queryable="false" visible="false"  
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            stylesalias=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata=""
+            metadata-csw="">
+            <template url=""></template>
+        </layer>
+        <layer id="susceptibilite" name="Susceptibilité érosion" type="wms"
+            expanded = "false" queryable="false" visible="false"  
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            stylesalias=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata=""
+            metadata-csw="">
+            <template url=""></template>
+        </layer>
+        </group>         
+    </theme>
+
+    <theme id="theme-2" name="Cartes locales" collapsed="true" icon="fas fa-caret-right">
+        <layer id="Assemblage_carte_Bretagne" name="Emprise des cartes disponibles" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl="https://geosas.fr/apps/sdb/img/lgd_mapcl.png"
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/cl.emprises_echelles.sld"
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="5"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/d9b459d5-897e-483d-ae40-9306c44a8875"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=d9b459d5-897e-483d-ae40-9306c44a8875">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.emprises_echelles.mst"></template>  
+          </layer>
+        <layer id="Bais_25000" name="Bais - 1/25000" type="wms"
+            expanded = "false" queryable="true"    
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/f3c139db-279d-400b-8be2-2afb530fe9e9"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=f3c139db-279d-400b-8be2-2afb530fe9e9">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>  
+        </layer>  
+        <layer id="Breteil_25000" name="Bréteil - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/631c2387-7356-4858-a62d-abe0e01d6ceb"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=631c2387-7356-4858-a62d-abe0e01d6ceb">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>  
+        </layer>
+        <layer id="Combourg_10000" name="Combourg - 1/10000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/d09df1a0-d3ea-4193-a716-09b89ca17346"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=d09df1a0-d3ea-4193-a716-09b89ca17346">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>  
+        </layer>
+        <layer id="Estuaires_25000" name="Estuaires - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/a6af0fc8-678d-4927-9693-cbfdb588131e"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=a6af0fc8-678d-4927-9693-cbfdb588131e">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Guer_25000" name="Guer - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/dc890f69-984f-42bd-bc7b-b0e806ff4b72"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=dc890f69-984f-42bd-bc7b-b0e806ff4b72">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="janze_25000" name="Janzé - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/04c5b61f-747c-424d-904f-d31ed49c9ce4"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=04c5b61f-747c-424d-904f-d31ed49c9ce4">
+           <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Kervijen_25000" name="Kervijen - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/1584cd1d-88d9-4bd0-a37c-26aadff46622"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=1584cd1d-88d9-4bd0-a37c-26aadff46622">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Loudeac_25000" name="Loudéac - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/5ddf2aad-afd1-4f37-8982-175609e25306"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=5ddf2aad-afd1-4f37-8982-175609e25306">
+           <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Naizin_10000" name="Naizin - 1/10000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/9c518038-57a9-4d21-a345-ccf65e7022e0"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=9c518038-57a9-4d21-a345-ccf65e7022e0">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Pipriac_25000" name="Pipriac - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/e8a064aa-9ad8-46ff-85bb-1d60a5a89043"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=e8a064aa-9ad8-46ff-85bb-1d60a5a89043">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Plouguerneau_50000" name="Plouguerneau - 1/50000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/e242ba5a-f627-4796-a43b-4e550925c53d"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=e242ba5a-f627-4796-a43b-4e550925c53d">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="retiers_10000" name="Retiers - 1/10000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/3a67e4e9-1787-4f68-9abc-2679084c562a"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=3a67e4e9-1787-4f68-9abc-2679084c562a">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Rostrenen_10000" name="Rostrenen - 1/10000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/4c961d2a-4655-4b38-8816-f8b076866486"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=4c961d2a-4655-4b38-8816-f8b076866486">
+           <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Stbrieuciffs_25000" name="Saint-Brieuc-des-Iffs - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/db754b08-9b08-4ec3-8a16-c440139fe31f"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=db754b08-9b08-4ec3-8a16-c440139fe31f">
+           <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Stmalo_25000" name="Saint-Malo - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/56696c69-6317-4bb5-a1b3-a1201948a787"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=56696c69-6317-4bb5-a1b3-a1201948a787">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="Sudrennes_25000" name="Sud Rennes - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/48509043-d0ab-4b34-b673-b5698a0cf430"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=48509043-d0ab-4b34-b673-b5698a0cf430">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+        <layer id="villaumur_25000" name="Villaumur - 1/25000" type="wms"
+            expanded = "false" queryable="true"       
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld=""
+            attribution="Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/25726225-0b9d-49a5-821f-129cb11da40e"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=25726225-0b9d-49a5-821f-129cb11da40e">
+            <template url="https://geosas.fr/apps/sdb/templates/cl.4C.mst"></template>
+        </layer>
+    </theme>     
+    <theme id="theme-3" name="Stock de carbone" collapsed="true" icon="fas fa-caret-right"> 
+         <layer id="Stock_Carbone_UCS_BZH" name="Estimation du stock de carbone par UCS" type="wms"
+            expanded="true" queryable="true" visible="false"  
+            style="" opacity="1" 
+            tiled="true"
+            infoformat="application/vnd.ogc.gml" 
+            legendurl=""
+            url="https://geosas.fr/geoserver/sdb/ows" 
+            sld="https://geosas.fr/apps/sdb/sld/carb.ucs_p30.sld,https://geosas.fr/apps/sdb/sld/carb.ucs_p1m.sld"
+            stylesalias="Entre 0 et 30cm de profondeur,Entre 0 et 1m de profondeur"
+            attribution="Les entités représentent des UCS (Unité cartographique de sol) // Sols de Bretagne - UMR 1069 SAS INRAE - Agrocampus Ouest" featurecount="1"
+            metadata="https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/a6eceb6a-3345-4703-baca-de805495cdd1"
+            metadata-csw="https://geosas.fr/geonetwork/srv/eng/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=a6eceb6a-3345-4703-baca-de805495cdd1">
+            <template url="https://geosas.fr/apps/sdb/templates/carb.stock_ucs.mst"></template>
+        </layer>
+    </theme>   
+</themes>
+</config>

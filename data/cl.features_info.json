@@ -1,0 +1,374 @@
+{
+   "janze_100000": {
+      "Metadonnee": "7b71fe4b-ffcb-4c4b-a1b3-4174d84882e8",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "janze"
+   },
+   "groix_20000": {
+      "Metadonnee": "fbccbeb1-311d-4563-8083-6f93d6fdc52e",
+      "Format": "Scan",
+      "publ": 0,
+      "nom_loc": "groix"
+   },
+   "belleile_25000": {
+      "Metadonnee": "1f52ccef-1a41-4a6f-9d2e-2ffbb8789431",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "belleile"
+   },
+   "houat_25000": {
+      "Metadonnee": "2dab0aaa-8e16-41a3-a5ac-4ebd95723229",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "houat"
+   },
+   "hoedic_25000": {
+      "Metadonnee": "fcfc242f-daec-4e54-b7bd-14efd75aa4db",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "hoedic"
+   },
+   "maraisredon_25000": {
+      "Metadonnee": "bdf641ad-28a9-4a8a-a8ba-b32dfb062fbf",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "Marais de Redon"
+   },
+   "stbrieuc_25000": {
+      "Metadonnee": "32641393-55bf-4ea3-af7b-a12bded3ae36",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "saint-brieuc"
+   },
+   "quintin_25000": {
+      "Metadonnee": "ca2286ec-0637-4d75-b247-75f8fc6366f1",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "quintin"
+   },
+   "villaumur_25000": {
+      "Metadonnee": "25726225-0b9d-49a5-821f-129cb11da40e",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "villaumur"
+   },
+   "estuaires_25000": {
+      "Metadonnee": "a6af0fc8-678d-4927-9693-cbfdb588131e",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "estuaires"
+   },
+   "cheze_25000": {
+      "Metadonnee": "",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "La chèze"
+   },
+   "janze_25000": {
+      "Metadonnee": "04c5b61f-747c-424d-904f-d31ed49c9ce4",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "janze"
+   },
+   "maxent_25000": {
+      "Metadonnee": "",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "maxent"
+   },
+   "peran_25000": {
+      "Metadonnee": "",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "peran"
+   },
+   "plelan_25000": {
+      "Metadonnee": "",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "plelan"
+   },
+   "sudrennes_25000": {
+      "Metadonnee": "48509043-d0ab-4b34-b673-b5698a0cf430",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "Sud Rennes"
+   },
+   "senoux_25000": {
+      "Metadonnee": "",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "senoux"
+   },
+   "treffendel_25000": {
+      "Metadonnee": "",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "treffendel"
+   },
+   "breteil_25000": {
+      "Metadonnee": "631c2387-7356-4858-a62d-abe0e01d6ceb",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "breteil"
+   },
+   "bais_25000": {
+      "Metadonnee": "f3c139db-279d-400b-8be2-2afb530fe9e9",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "bais"
+   },
+   "bruc_25000": {
+      "Metadonnee": "",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "bruc"
+   },
+   "pipriac_25000": {
+      "Metadonnee": "e8a064aa-9ad8-46ff-85bb-1d60a5a89043",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "pipriac"
+   },
+   "arz_25000": {
+      "Metadonnee": "d7891e94-3763-495f-a88c-effb0fb4dcd2",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "arz"
+   },
+   "ilur_25000": {
+      "Metadonnee": "a166fa5c-9d0b-4485-89c5-2faf6f8462e7",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "Ilur"
+   },
+   "molene_18000": {
+      "Metadonnee": "5e5cfb89-6ea4-4450-8d50-5a6054521b42",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "molene"
+   },
+   "fougeretz_25000": {
+      "Metadonnee": "3c469fbe-b7be-46ec-b329-588090a1cbab",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "fougeretz"
+   },
+   "thouarault_25000": {
+      "Metadonnee": "3ca2bddc-8e56-477d-870b-105730236115",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "thouarault"
+   },
+   "montcontour_50000": {
+      "Metadonnee": "b628ead3-4dfe-4f71-9fdd-4fadf4520d78",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "montcontour"
+   },
+   "lamballe_50000": {
+      "Metadonnee": "92c97e8d-f4e4-4cfc-9efe-9382ffbcaa1f",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "lamballe"
+   },
+   "quintin_50000": {
+      "Metadonnee": "dd569771-dd67-49a0-a20d-32b2e7b84778",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "quintin"
+   },
+   "concarneau_50000": {
+      "Metadonnee": "3439c8ca-7cfc-4942-b90e-8b7760f18ae3",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "concarneau"
+   },
+   "guerche_50000": {
+      "Metadonnee": "6e57186d-f123-4c8e-be69-359d2985f7d5",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "guerche"
+   },
+   "janze_50000": {
+      "Metadonnee": "ede0192f-08fb-4dda-89a2-345c13495ef2",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "janze"
+   },
+   "rosporden_50000": {
+      "Metadonnee": "e64cc3ba-a485-4d14-97af-f4209177a7b9",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "rosporden"
+   },
+   "plabennec_50000": {
+      "Metadonnee": "448f6b3a-deb4-4ef8-ae55-9dde2b2f0ee5",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "plabennec"
+   },
+   "stpoldeleon_50000": {
+      "Metadonnee": "6b715453-8eb1-4a9e-ae2d-b2ea395649dd",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "Saint-pol-de-léon"
+   },
+   "plestin_50000": {
+      "Metadonnee": "9b68e84a-54c3-4746-ae96-fa92e156179a",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "plestin"
+   },
+   "landerneau_50000": {
+      "Metadonnee": "ba8e817c-2d8a-4d96-a782-93b0ddfca0fa",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "landerneau"
+   },
+   "batz_10000": {
+      "Metadonnee": "38d64329-e8b6-4d58-9eac-515c4215272c",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "batz"
+   },
+   "brehat_10000": {
+      "Metadonnee": "c46672db-ae49-4722-8c59-460e9d4840e6",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "brehat"
+   },
+   "sein_10000": {
+      "Metadonnee": "cf37ae85-ae84-48e3-9f55-c8fede949945",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "sein"
+   },
+   "pleucadeuc_10000": {
+      "Metadonnee": "7299f92e-7138-4946-9a6f-f25806792ff2",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "pleucadeuc"
+   },
+   "bourdonnaie_5000": {
+      "Metadonnee": "8e5a69e8-a61c-48e6-8f06-45846b2b9cf0",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "bourdonnaie"
+   },
+   "retiers_10000": {
+      "Metadonnee": "3a67e4e9-1787-4f68-9abc-2679084c562a",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "retiers"
+   },
+   "scaerleuhan_10000": {
+      "Metadonnee": "a3d89176-8a23-41f6-b9f6-c0bdc7aca0a1",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "scaerleuhan"
+   },
+   "stthurial_25000": {
+      "Metadonnee": "",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "Saint-thurial"
+   },
+   "bourgcomptes_25000": {
+      "Metadonnee": "d545e5bf-0dca-4f6f-ae7b-ce9f49d6b574",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "Bourg-des-Comptes"
+   },
+   "leferre_25000": {
+      "Metadonnee": "43e3d4f2-0ffd-4c52-9aeb-213c9293ea42",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "Le Ferré"
+   },
+   "crach_25000": {
+      "Metadonnee": "05950ee6-206f-4298-be02-f6cbf80aeaa5",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "crach"
+   },
+   "naizin_10000": {
+      "Metadonnee": "9c518038-57a9-4d21-a345-ccf65e7022e0",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "naizin"
+   },
+   "gahard_25000": {
+      "Metadonnee": "a96cdee4-d907-46da-98c0-8f114573b1ea",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "gahard"
+   },
+   "districtrennes_25000": {
+      "Metadonnee": "7a9d1fdf-2139-44ce-9bf0-ca6e7c5b4696",
+      "Format": "Vecteur",
+      "publ": 0,
+      "nom_loc": "Distric de Rennes"
+   },
+   "combourg_10000": {
+      "Metadonnee": "d09df1a0-d3ea-4193-a716-09b89ca17346",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "combourg"
+   },
+   "loudeac_25000": {
+      "Metadonnee": "5ddf2aad-afd1-4f37-8982-175609e25306",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "loudeac"
+   },
+   "rostrenen_10000": {
+      "Metadonnee": "4c961d2a-4655-4b38-8816-f8b076866486",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "rostrenen"
+   },
+   "kervijen_25000": {
+      "Metadonnee": "1584cd1d-88d9-4bd0-a37c-26aadff46622",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "kervijen"
+   },
+   "plouguerneau_50000": {
+      "Metadonnee": "e242ba5a-f627-4796-a43b-4e550925c53d",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "plouguerneau"
+   },
+   "guer_25000": {
+      "Metadonnee": "dc890f69-984f-42bd-bc7b-b0e806ff4b72",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "guer"
+   },
+   "baindebretagne_25000": {
+      "Metadonnee": "ae61ba3a-10c1-4604-93ae-b41481990801",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "bain de bretagne"
+   },
+   "guerche_25000": {
+      "Metadonnee": "730f0d6a-1421-4c20-9939-97c7ac1e1835",
+      "Format": "Image numérisée",
+      "publ": 0,
+      "nom_loc": "guerche"
+   },
+   "stmalo_25000": {
+      "Metadonnee": "56696c69-6317-4bb5-a1b3-a1201948a787",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "Saint-Malo"
+   },
+   "stbrieuciffs_25000": {
+      "Metadonnee": "db754b08-9b08-4ec3-8a16-c440139fe31f",
+      "Format": "Vecteur",
+      "publ": 1,
+      "nom_loc": "Saint-Brieuc-des-Iffs"
+   }
+}

@@ -1,0 +1,199 @@
+<!-- *** TEMPLATE EMPRISES / BANDEAU DROITE *** --> 
+
+{{#features}}
+  <li class="item" style="width:100%;padding: 10px;">
+    <h3 class="title{{Format}} title-feature"> Carte pédologique de <span id="nameMap_{{Nom}}"></span></h3>  
+    <div class="caracteristiques">
+      <img class="img_mapcl" src="https://geosas.fr/img/metadata/{{Nom}}.png">
+      <div class="title-rubrique">Caractéristiques</div>
+      <div class="text-feature">
+        <span class="bold">Échelle:</span> 1/{{Echelle}}<br>
+        <span class="bold">Format:</span> <span id="formatMap_{{Nom}}"></span><br>
+        <span class="bold">Auteur:</span> {{Auteur}}<br>
+        <span class="bold">Année:</span> {{Annee}}<br><br>
+      </div>  
+    </div>
+    <div id="downloadMapVector-{{Format}}" class="mapVector">
+      <div id="MapVectorPublie_{{Nom}}">
+        <div class="VectorPublie">
+          <div class="text-feature">La carte est disponible au format vectoriel (.shp)</div>
+          <div style="margin-top: -5px; display:flex;">
+              <a class="button_download" href="https://geosas.fr/geoserver/wfs?typeName=sdb%3A{{Nom}}&outputFormat=SHAPE-ZIP&request=GetFeature&service=WFS&version=2.0.0" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Télécharger la couche</a>
+              <a id="metaMap_{{Nom}}" class="button_download meta" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Métadonnées</a>
+          </div>
+        </div>
+        <div class="VectorNonPublie">
+          <div class="text-feature">La carte est disponible au format vectoriel. Pour l'obtenir, veuillez contacter le Laboratoire de science du sol.</div>
+          <div style="margin-top: 15px;">
+            <a class="button_download" href="mailto:solsdebretagne@agrocampus-ouest.fr" target="_blank"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a>
+            <a id="metaMap_{{Nom}}" class="button_download meta" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Métadonnées</a>
+          </div>
+        </div>
+      </div>            
+    </div>
+    <div id="downloadMapImg-{{Format}}" class="mapImg">
+      <div class="text-feature">La carte est disponible au format image (scan). Pour l'obtenir, veuillez contacter le Laboratoire de science du sol.</div>
+      <div style="margin-top: 15px;">
+        <a class="button_download" href="mailto:solsdebretagne@agrocampus-ouest.fr" target="_blank"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Contact</a>
+        <a id="metaMapScan_{{Nom}}" class="button_download meta" target="_blank"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Métadonnées</a>
+      </div>      
+    </div>
+    
+  </li>
+
+
+<style>
+/* Import des fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Définition des variables */
+
+ :root {
+  --font-theme: 'Roboto', sans-serif;
+  --font-condensed-theme: 'Roboto Condensed', sans-serif;
+  --color-theme: #6c675c;
+}
+
+/* -- Propriétés de styles -- */
+/* Texte */
+
+.title-feature {
+  color: var(--color-theme);
+  font-family: var(--font-condensed-theme);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 19px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.subtitle-feature {
+  color: var(--color-theme);
+  font-family: var(--font-theme);
+  font-size: 18px;
+  margin-top: 7%;
+  line-height: 1;
+}
+
+.text-feature {
+  font-family: var(--font-condensed-theme);
+  color: #6c675c;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.title-rubrique {
+  color: var(--color-theme);
+  font-family: var(--font-condensed-theme);
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 15px;
+  line-height: 1.2;
+}
+
+.bold {
+  font-family: var(--font-condensed-theme);
+  font-weight: 600;
+}
+
+
+/* Image */
+
+.img_mapcl {
+  width: 98%;
+  margin: 10px 0px;
+}
+
+
+/* Bouton de téléchargement */
+
+.button_download {
+  padding: 8px 12px;
+  color: white;
+  font-family: var(--font-condensed-theme);
+  border-radius: 4px;
+  margin-top: 16px;
+}
+
+
+/*** Gestion des propriétés selon VECTEUR / IMG ***/
+
+
+/* Vecteur */
+
+#downloadMapImg-Vecteur,
+#downloadMapImg-Vecteur_code4c,
+#downloadMapImg-Vecteur_code4c_uts {
+  display: none;
+}
+
+.mapVector .button_download {
+  background-color: #407777;
+}
+
+.mapVector .button_download:hover {
+  background-color: #6c675cbf;
+  color: white;
+}
+
+.meta {
+  margin-left: 10px;
+}
+
+
+/* Vecteur publié ou non */
+
+#MapVectorPublie_0 .VectorPublie {
+  display: none;
+}
+
+#MapVectorPublie_1 .VectorNonPublie {
+  display: none;
+}
+
+
+/* Raster */
+
+#downloadMapVector-Scan {
+  display: none;
+}
+
+.mapImg .button_download {
+  background-color: #905B63;
+}
+
+.mapImg .button_download:hover {
+  background-color: #905B63;
+  color: white;
+}
+
+*/
+</style>
+
+<script>
+
+/* Récupération des infos supplémentaires dans une table JSON */
+
+$.getJSON("https://geosas.fr/apps/sdb/data/cl.features_info.json", function(data){
+
+  var name_map = data["{{Nom}}"]["nom_loc"];
+  document.getElementById('nameMap_{{Nom}}').innerHTML = name_map;
+
+  var format_map = data["{{Nom}}"]["Format"];
+  document.getElementById('formatMap_{{Nom}}').innerHTML = format_map;
+
+  var publi_map = data["{{Nom}}"]["publ"];
+  document.getElementById('MapVectorPublie_{{Nom}}').id = "MapVectorPublie_"+publi_map;
+
+  var meta_map = data["{{Nom}}"]["Metadonnee"];
+  var metamap = "https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/"+meta_map;
+  document.getElementById('metaMap_{{Nom}}').href = metamap;
+
+  var meta_mapScan = data["{{Nom}}"]["Metadonnee"];
+  var metamapS = "https://geosas.fr/geonetwork/srv/fre/catalog.search#/metadata/"+meta_mapScan;
+  document.getElementById('metaMapScan_{{Nom}}').href = metamapS;  
+
+    });
+
+</script>
+{{/features}}

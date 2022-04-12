@@ -1,0 +1,429 @@
+[
+  {
+    "Echelle": 100000,
+    "Nom": "janze_100000",
+    "Nom_loc": "janze",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 20000,
+    "Nom": "groix_20000",
+    "Nom_loc": "groix",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "belleile_25000",
+    "Nom_loc": "belleile",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "houat_25000",
+    "Nom_loc": "houat",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "hoedic_25000",
+    "Nom_loc": "hoedic",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "maraisredon_25000",
+    "Nom_loc": "maraisredon",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "stbrieuc_25000",
+    "Nom_loc": "stbrieuc",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "quintin_25000",
+    "Nom_loc": "quintin",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "villaumur_25000",
+    "Nom_loc": "villaumur",
+    "pub_geob": 1,
+    "id_metadonnes": "25726225-0b9d-49a5-821f-129cb11da40e"
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "estuaires_25000",
+    "Nom_loc": "estuaires",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "stmalo_25000",
+    "Nom_loc": "stmalo",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "cheze_25000",
+    "Nom_loc": "cheze",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "janze_25000",
+    "Nom_loc": "janze",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "maxent_25000",
+    "Nom_loc": "maxent",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "peran_25000",
+    "Nom_loc": "peran",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "plelan_25000",
+    "Nom_loc": "plelan",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "sudrennes_25000",
+    "Nom_loc": "sudrennes",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "senoux_25000",
+    "Nom_loc": "senoux",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "treffendel_25000",
+    "Nom_loc": "treffendel",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "breteil_25000",
+    "Nom_loc": "breteil",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "bais_25000",
+    "Nom_loc": "bais",
+    "pub_geob": 1,
+    "id_metadonnes": "f3c139db-279d-400b-8be2-2afb530fe9e9"
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "bruc_25000",
+    "Nom_loc": "bruc",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "arz_25000",
+    "Nom_loc": "arz",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "hur_25000",
+    "Nom_loc": "hur",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 18000,
+    "Nom": "molene_18000",
+    "Nom_loc": "molene",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "fougeretz_25000",
+    "Nom_loc": "fougeretz",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "thouarault_25000",
+    "Nom_loc": "thouarault",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "montcontour_50000",
+    "Nom_loc": "montcontour",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "lamballe_50000",
+    "Nom_loc": "lamballe",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "quintin_50000",
+    "Nom_loc": "quintin",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "concarneau_50000",
+    "Nom_loc": "concarneau",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "guerche_50000",
+    "Nom_loc": "guerche",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "janze_50000",
+    "Nom_loc": "janze",
+    "pub_geob": 1,
+    "id_metadonnes": "04c5b61f-747c-424d-904f-d31ed49c9ce4"
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "rosporden_50000",
+    "Nom_loc": "rosporden",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "plabennec_50000",
+    "Nom_loc": "plabennec",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "stpoldeleon_50000",
+    "Nom_loc": "stpoldeleon",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "plestin_50000",
+    "Nom_loc": "plestin",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "landerneau_50000",
+    "Nom_loc": "landerneau",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "batz_10000",
+    "Nom_loc": "batz",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "brehat_10000",
+    "Nom_loc": "brehat",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "sein_10000",
+    "Nom_loc": "sein",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "pleucadeuc_10000",
+    "Nom_loc": "pleucadeuc",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 5000,
+    "Nom": "bourdonnaie_5000",
+    "Nom_loc": "bourdonnaie",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "retiers_10000",
+    "Nom_loc": "retiers",
+    "pub_geob": 1,
+    "id_metadonnes": "3a67e4e9-1787-4f68-9abc-2679084c562a"
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "scaerleuhan_10000",
+    "Nom_loc": "scaerleuhan",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "stthurial_25000",
+    "Nom_loc": "stthurial",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "bourgcomptes_25000",
+    "Nom_loc": "bourgcomptes",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "leferre_25000",
+    "Nom_loc": "leferre",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "crach_25000",
+    "Nom_loc": "crach",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "naizin_10000",
+    "Nom_loc": "naizin",
+    "pub_geob": 1,
+    "id_metadonnes": "9c518038-57a9-4d21-a345-ccf65e7022e0"
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "gahard_25000",
+    "Nom_loc": "gahard",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "districtrennes_25000",
+    "Nom_loc": "districtrennes",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "combourg_10000",
+    "Nom_loc": "combourg",
+    "pub_geob": 1,
+    "id_metadonnes": "d09df1a0-d3ea-4193-a716-09b89ca17346"
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "loudeac_25000",
+    "Nom_loc": "loudeac",
+    "pub_geob": 1,
+    "id_metadonnes": "5ddf2aad-afd1-4f37-8982-175609e25306"
+  },
+  {
+    "Echelle": 10000,
+    "Nom": "rostrenen_10000",
+    "Nom_loc": "rostrenen",
+    "pub_geob": 1,
+    "id_metadonnes": "4c961d2a-4655-4b38-8816-f8b076866486"
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "kervijen_25000",
+    "Nom_loc": "kervijen",
+    "pub_geob": 1,
+    "id_metadonnes": "1584cd1d-88d9-4bd0-a37c-26aadff46622"
+  },
+  {
+    "Echelle": 50000,
+    "Nom": "plouguerneau_50000",
+    "Nom_loc": "plouguerneau",
+    "pub_geob": 1,
+    "id_metadonnes": "e242ba5a-f627-4796-a43b-4e550925c53d"
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "guer_25000",
+    "Nom_loc": "guer",
+    "pub_geob": 1,
+    "id_metadonnes": "dc890f69-984f-42bd-bc7b-b0e806ff4b72"
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "baindebretagne_25000",
+    "Nom_loc": "baindebretagne",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "guerche_25000",
+    "Nom_loc": "guerche",
+    "pub_geob": 0,
+    "id_metadonnes": ""
+  },
+  {
+    "Echelle": 25000,
+    "Nom": "pipriac_25000",
+    "Nom_loc": "pipriac",
+    "pub_geob": 1,
+    "id_metadonnes": "e8a064aa-9ad8-46ff-85bb-1d60a5a89043"
+  }
+]

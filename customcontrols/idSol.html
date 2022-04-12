@@ -1,0 +1,80 @@
+ <div class="row">
+    <div class="col-md-12"> 
+        <div class="btnSolBlock">  
+                <button id="idSol_btn" type="button" class="btn-sol btn-off"></button>   
+                <p class="title-custom"><span id="label_btnSol" class="label-btn-off"></span> l'outil</p>
+        </div>
+        <p >Cliquez sur la carte pour afficher l'outil d'identification des sols et déterminez votre type de sol à l'endroit sélectionné en suivant les indications.</p>
+        <p class="alert-custom">Pensez à désactiver l'outil quand il n'est plus utilisé afin de ne pas perturber la navigation</p>
+    </div>
+</div>    
+
+<style>
+
+    .alert-custom {
+        font-size: 12px;
+        font-style: italic;
+        opacity: 0.8;
+    }
+
+    .title-custom {
+        color: #3f7676;
+        font-weight: 600;
+    }
+
+    .btnSolBlock {
+        display: inline-flex;
+    }
+
+    .btn-sol {
+        padding: 5px 15px;
+        border-radius: 15px;
+        font-family: var(--font-theme);
+        margin: 3px 10px 5px 0px;    
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .btn-off {
+        background-color: white;
+        border: 2px solid #3f7676;
+        color: #3f7676;
+    }
+
+    .btn-off:hover {
+        background-color: #3f7676;
+        color: white!important;
+        opacity: 0.8;
+    }
+
+    .btn-off:after {
+        content : "Off";
+    }
+    
+    .label-btn-off:after {
+        content : "Activer";
+    }
+
+    .btn-on {
+        color: white;
+        border: 2px solid #3f7676;
+        background-color: #3f7676;
+    }
+
+    .btn-on:hover {
+        opacity: 0.8;
+    }
+
+    .btn-on:after {
+        content : "On";
+    }
+    
+    .label-btn-on:after {
+        content : "Désactiver";
+    }
+
+    .form-group-opacity {
+        display: none;
+    }
+
+</style>

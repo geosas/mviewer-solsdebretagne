@@ -1,0 +1,188 @@
+<!-- *** TEMPLATE / Propriétés des sols >> CEC *** --> 
+
+{{#features}}
+
+<li class="item container-template" style="width:100%;">
+	<div id="backgroundTitleSynth" style="line-height: 1.2;">
+		<div class="title-temp" style="font-size: 16px;opacity: 0.7;">Propriétés des sols</div>
+        <div class="title-temp">Capacité d'échange cationique </div>        
+	</div>	
+
+    <div class="blocChart">
+        <div id="idChartCEC">
+			<canvas class="chart" id="GraphBarCEC" height="150"></canvas>
+		</div>
+		<div class="textChart">
+			<div class="title-chart">Répartition de capacité d'échange cationique (cmol(+)/kg) selon la profondeur du sol</div>
+			<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+		</div>
+    </div>  
+    
+</li>
+<style>
+
+/* Import des fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Définition des variables */
+:root {
+	--font-theme: 'Roboto', sans-serif;
+	--font-condensed-theme: 'Roboto Condensed', sans-serif;
+	--color-theme: #6c675c;
+}
+
+.container-template {
+	padding: 15px;
+}
+
+/* Titres et texte */
+#backgroundTitleSynth {
+	background-image: url(https://geosas.fr/apps/sdb/img/soil_synthese.svg);
+    padding: 10px 0px 10px 65px;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: left;
+	margin-bottom: 20px;
+}
+
+.title-temp {
+	font-family: var(--font-condensed-theme);
+    text-transform: uppercase;
+    color: var(--color-theme);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.subtitle-temp {
+	font-family: var(--font-condensed-theme);
+	color: var(--color-theme);
+	font-size: 13px;
+    font-style: italic;
+}
+
+/* Chart */
+.textChart {
+    text-align: center;
+    margin: 10px 0;
+	color: var(--color-theme);
+}
+
+.title-chart {
+    font-weight: 600;
+}
+
+</style>
+<script>
+
+		// Couleurs du graphique CEC
+		function getColorBarCEC(value) {
+			var color;
+			if (value < 5) {
+				color = '#faebdd';
+			} else if (value >= 5 && value < 7.5) {
+				color = '#f6ac84';
+			} else if (value >= 7.5 && value < 10) {
+				color = '#f16144';
+			} else if (value >= 10 && value < 12.5) {
+				color = '#cb1b4f';
+			} else if (value >= 12.5 && value < 15) {
+				color = '#851e5a';
+			} else if (value >= 15 && value < 20) {
+				color = '#401b44';
+			} else if (value >= 20) {
+				color = '#03051a';
+			};
+			return color;
+		}
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarCEC = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarCEC = [
+			parseFloat({{Band1}}),
+			parseFloat({{Band2}}),
+			parseFloat({{Band3}}),
+			parseFloat({{Band4}}),
+			parseFloat({{Band5}}),
+			parseFloat({{Band6}})
+		];
+		var colorsBarCEC = [
+			getColorBarCEC({{Band1}}),
+			getColorBarCEC({{Band2}}),
+			getColorBarCEC({{Band3}}),
+			getColorBarCEC({{Band4}}),
+			getColorBarCEC({{Band5}}),
+			getColorBarCEC({{Band6}})
+		];
+
+		var graph_bar_cec = {};
+		graph_bar_cec.getData = function() {
+			var data = {
+				chart_bar_CEC: {
+					labels: labelsBarCEC,
+					colors: colorsBarCEC,
+					data: datasetBarCEC
+				}
+			};
+			console.log(data);
+			graph_bar_cec.drawChart(data);
+		};
+    
+		graph_bar_cec.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarCEC");
+			var GraphBarCEC = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_CEC.labels,
+					datasets: [{
+						label: "CEC en cmol(+)/kg",
+						backgroundColor: data.chart_bar_CEC.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_CEC.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+                            gridLines: {
+                                display:false
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Profondeur du sol'
+                            }
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " cmol(+)/kg";
+							}
+						}
+					}
+				}
+			});
+		};
+
+		if (typeof Chart === 'function') {
+			graph_bar_cec.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_cec.getData();
+			});
+		}
+
+</script>
+
+{{/features}}

@@ -1,0 +1,433 @@
+<!-- *** TEMPLATE Caractéristiques des sols / BANDEAU DROITE *** --> 
+
+{{#features}}
+	<li class="item" style="width:100%;">
+		<!-- TITLE -->
+		<div id="titleBoxSol" style="margin: 0;">
+			<div class="title-feature">UCS N°{{N_UCS}}</div>
+			<div class="subtitle-feature">{{NOMUCS}}</div>
+			<div class="loc-feature">Entité paysagère: {{ENTITE_P}}</div>
+		</div>
+		<!-- /.TITLE -->
+		<!-- CARACTERISTIQUE -->
+        <div id="caraSol" style="margin: 0;">
+			<div class="title-rubrique">Caractéristiques du sol <span style="font-family:var(--font_italic);">(valeurs dominantes)</span></div>
+            <div class="caraSol-feature" id="materiau">
+                <div class="titleCara">Matériau parental</div>
+                <div class="featureCara">{{MAT_DOM}} ({{P_MAT_DOM}}%)</div>
+                <div class="progressSol">
+                    <div class="progress-bar" style="width:{{P_MAT_DOM}}%;"></div>
+                </div>    
+            </div>
+			<div class="caraSol-feature" id="texture">
+                <div class="titleCara">Texture</div>
+                <div class="featureCara"><span id="texture-{{TEXT_DOM}}"></span> ({{P_TEXT_DOM}}%)</div>
+                <div class="progressSol">
+                    <div class="progress-bar" style="width:{{P_TEXT_DOM}}%;"></div>
+                </div>    
+            </div>
+			<div class="caraSol-feature" id="famille">
+                <div class="titleCara">Famille de sol</div>
+                <div class="featureCara">{{FSOL_DOM}} ({{P_FSOL_DOM}}%)</div>
+                <div class="progressSol">
+                    <div class="progress-bar" style="width:{{P_FSOL_DOM}}%;"></div>
+                </div>    
+            </div>
+			<div class="caraSol-feature" id="epaisseur">
+                <div class="titleCara">Epaisseur</div>
+                <div class="featureCara"><span id="epaisseur-{{EPAIS_DOM}}"></span> ({{P_EPAISDOM}}%)</div>
+                <div class="progressSol">
+                    <div class="progress-bar" style="width:{{P_EPAISDOM}}%;"></div>
+                </div>    
+            </div>
+			<div class="caraSol-feature" id="drainage">
+                <div class="titleCara">Drainage</div>
+                <div class="featureCara"><span id="drainage-{{DRAI_DOM}}"></span> ({{P_DRAI_DOM}}%)</div>
+                <div class="progressSol">
+                    <div class="progress-bar" style="width:{{P_DRAI_DOM}}%;"></div>
+                </div>    
+            </div>
+			<div style="margin-top: 20px; text-align: center;">
+				<a class="button_link" href="http://apisol.geosas.fr/public/Fiches_UCS/{{NO_ETUDE}}/{{N_UCS}}.pdf" target="_blank">Consulter la fiche UCS</a>
+			</div>						
+		</div>
+        <!-- /.CARACTERISTIQUE -->
+		<!-- COMPOSITION UTS -->
+        <div id="compoUTS" style="margin: 0; padding: 20px;">
+			<div class="title-rubrique" style="margin-bottom: 10px;">
+				Référentiel régional pédologique<br>
+				<span style="font-family:var(--font_regular);">Composition des UTS</span>
+			</div>
+			<div class="utsInfos" style="margin-bottom:50%;">
+					<table id="utsTable">
+						<thead class="titleTable">
+							<th class="nutsT">N°UTS</th>
+							<th class="utsT">NOM UTS</th>
+							<th class="pourcentT">%</th>
+						</thead>
+						<tbody></tbody>
+					</table>
+					<p style="font-family: var(--font_italic);font-size:11px;padding: 5px;color: var(--color-theme);">Pour consulter la fiche descriptive de l'UTS, cliquez sur le n° ou le nom de l'UTS</p>
+			</div>
+		</div>
+		<!-- /.COMPOSITION UTS -->
+	</li>
+
+
+<style>
+  /* Import des fonts*/
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+  /* Définition des variables */
+  :root {
+    --font-theme: 'Roboto', sans-serif;
+    --font-condensed-theme: 'Roboto Condensed', sans-serif;
+    --color-theme: #6c675c;
+  }
+
+  /* -- Propriétés de styles -- */
+	/* Texte */
+
+	.title-feature {
+		color: var(--color-theme);
+	    font-family: var(--font-condensed-theme);
+		font-weight:600;
+	    text-transform: uppercase;
+	    font-size: 19px;
+	    margin-bottom: 2px;
+	    line-height: 1.2;
+	}
+	.subtitle-feature {
+		color: var(--color-theme);
+		font-family: var(--font-condensed-theme);
+		text-transform: uppercase;
+		font-size:15px;
+		margin-bottom: 10px;
+		line-height:1;
+	}
+
+	.text-feature{
+		font-family: var(--font-condensed-theme);
+		color:#555;
+		font-size:12px;
+		margin-top:5%;
+	}
+
+	.title-rubrique {
+		color: var(--color-theme);
+	    font-family: var(--font-condensed-theme);
+		font-weight:600;
+	    font-size: 15px;
+	    margin-bottom: 2px;
+	    line-height: 1.2;
+	}
+
+	/* Titre UCS */
+
+	#titleBoxSol {
+		padding: 5% 15% 20px 25px;
+	}
+
+	.loc-feature {
+		font-family: var(--font-condensed-theme);
+		font-size: 13px;
+		color: var(--color-theme);
+	}
+
+	/*------------------------*/
+
+	/**** Caractéristiques du sol */
+
+	#caraSol {
+		padding: 20px;
+	}
+	.caraSol-feature {
+		padding: 10px 5px 10px 70px;
+		background-size: 50px;
+		background-repeat: no-repeat;
+		background-position: 0% 50%;
+	}
+
+	.titleCara {
+		font-family: var(--font-condensed-theme);
+		color: #B5AD9C;
+		font-size: 13px;
+	}
+
+	.featureCara {
+		font-family: var(--font-condensed-theme);
+		font-size: 14px;
+		text-transform: uppercase;
+	}
+
+	.progressSol {
+		background-color: #e8e6e0;
+		width: 70%;
+		height: 5px;
+		margin: 5px 0px;
+		border-radius: 20px;
+	}
+
+	.progress-bar {
+		float: left;
+		border-radius: 20px;
+		box-shadow: none;
+	}
+
+	/* Matériau */
+	#materiau {
+		background-image: url(https://geosas.fr/apps/sdb/img/materiau.svg);
+	}
+	#materiau .progress-bar {
+		background-color: #905B63;	
+	}
+	#materiau .featureCara {
+		color: #905B63;	
+	}
+
+	/* Texture */
+	#texture {
+		background-image: url(https://geosas.fr/apps/sdb/img/texture.svg);
+	}
+	#texture .progress-bar {
+		background-color: #BFBF88;	
+	}
+	#texture .featureCara {
+		color: #BFBF88;	
+	}
+
+	/* Intégration des intitulés - classes texture */
+
+	#texture-AA:after{
+		content:"Argile lourde";
+	}
+	#texture-A:after{
+		content:"Argileux";
+	}
+	#texture-AS:after{
+		content:"Argile sableuse";
+	}
+	#texture-Als:after{
+		content:"Argile limono-sableuse";
+	}
+	#texture-Al:after{
+		content:"Argile limoneuse";
+	}
+	#texture-AS:after{
+		content:"Argilo-sableux";
+	}
+	#texture-LAS:after{
+		content:"Limon argilo-sableux";
+	}
+	#texture-La:after{
+		content:"Limon argileux";
+	}
+	#texture-Sa:after{
+		content:"Sable argileux";
+	}
+	#texture-Sal:after{
+		content:"Sable argilo-limoneux";
+	}
+	#texture-LSa:after{
+		content:"Limon sablo-argileux";
+	}
+	#texture-L:after{
+		content:"Limon";
+	}
+	#texture-S:after{
+		content:"Sableux";
+	}
+	#texture-SS:after{
+		content:"Sable";
+	}
+	#texture-Sl:after{
+		content:"Sable limoneux";
+	}
+	#texture-Ls:after{
+		content:"Limon sableux";
+	}
+	#texture-LL:after{
+		content:"Limon pur";
+	}
+
+
+	/* Famille */
+	#famille {
+		background-image: url(https://geosas.fr/apps/sdb/img/famille.svg);
+	}
+	#famille .progress-bar {
+		background-color: #EFB556;	
+	}
+	#famille .featureCara {
+		color: #EFB556;	
+	}
+
+	/* Epaisseur */
+	#epaisseur {
+		background-image: url(https://geosas.fr/apps/sdb/img/epaisseur.svg);
+	}
+	#epaisseur .progress-bar {
+		background-color: #F28E67;	
+	}
+	#epaisseur .featureCara {
+		color: #F28E67;	
+	}
+
+	/* Intégration des intitulés - classes épaisseur */
+
+	#epaisseur-1:after{
+		content:"Sols profonds supérieur à 100cm d'épaisseur";
+	}
+	#epaisseur-2:after{
+		content:"Sols profonds de 80 à 100cm d'épaisseur";
+	}
+	#epaisseur-3:after{
+		content:"Sols moyennement profonds de 60 à 80cm d'épaisseur";
+	}
+	#epaisseur-4:after{
+		content:"Sols moyennement profonds de 40 à 60cm d'épaisseur";
+	}
+	#epaisseur-5:after{
+		content:"Sols peu profonds de 20 à 40cm d'épaisseur";
+	}
+	#epaisseur-6:after{
+		content:"Sols peu profonds de 0 à 20cm d'épaisseur";
+	}
+
+	/* Drainage */
+	#drainage {
+		background-image: url(https://geosas.fr/apps/sdb/img/hydromorphie.svg);
+	}
+	#drainage .progress-bar {
+		background-color: #407777;	
+	}
+	#drainage .featureCara {
+		color: #407777;	
+	}
+
+	/* Intégration des intitulés - classes de drainage */
+
+	 #drainage-1:after{
+		content:"Drainage excessif";
+	}
+	#drainage-2:after{
+		content:"Drainage favorable";
+	}
+	#drainage-3:after{
+		content:"Drainage modéré";
+	}
+	#drainage-4:after{
+		content:"Drainage imparfait";
+	}
+	#drainage-5:after{
+		content:"Drainage faible";
+	}
+	#drainage-6:after{
+		content:"Drainage assez pauvre";
+	}
+    #drainage-7:after{
+		content:"Drainage pauvre";
+	}
+    #drainage-8:after{
+		content:"Drainage très pauvre";
+	}
+    #drainage-9:after{
+		content:"Submergé";
+	}
+
+	/*------------------------*/
+
+	/* Lien vers la fiche UCS */
+
+	#caraSol a.button_link {
+		padding: 8px 12px;
+		background-color: var(--color-theme);
+		color: white;
+		font-family: var(--font-condensed-theme);
+		border-radius: 4px;
+		margin-top: 16px;
+	}
+
+	#caraSol a.button_link:hover {
+		background-color: #6c675cbf;
+	}
+
+	/*------------------------*/
+
+	/* TABLEAU JSON UTS */
+
+	/* Table*/
+
+	#utsTable {
+		width: 98%;
+		font-family: var(--font-condensed-theme);
+		color: #7b7872;
+		border-bottom: var(--color-theme) solid 2px;
+	}
+	/* Titre des rubriques*/
+	th {
+		padding: 10px;
+		background-color: var(--color-theme);
+		color: white;
+	}
+
+	.nutsT{
+		border-bottom-left-radius: 5px;
+    	border-top-left-radius: 5px;
+	}
+
+	.pourcentT{
+		border-bottom-right-radius: 5px;
+    	border-top-right-radius: 5px;
+	}
+
+	/* Lignes*/
+
+	td.no_uts {
+		text-align: center;
+	}
+
+	td.no_uts a {
+		color: var(--color-theme);
+		font-family: var(--font-condensed-theme);font-weight:600;
+	}
+
+	td.nom_uts {
+		padding: 4px 0px;
+	}
+
+	td.nom_uts a {
+		color: var(--color-theme);
+	}
+
+	td.pourcent_uts {
+		text-align: center;
+		padding: 0px 5px;
+	}
+
+	/* Coloration une ligne sur deux */
+	table#utsTable tr:nth-child(odd) {
+		background-color: #e8e6e0de;
+	}
+	
+
+</style>
+
+<script>
+
+    /* Intégration des données JSON dans la table UTS */
+
+	$.getJSON("https://api.geosas.fr/sol?service=WPS&version=1.0.0&request=execute&identifier=getucsinfo&datainputs=no_etude={{NO_ETUDE}};no_ucs={{N_UCS}}&rawdataoutput=ucsinfo", function(json) {
+     $.each(json.ucs.uts, function(i,data){
+       //i is index of array
+       var r = "<tr class='uts'>"+
+                 "<td class='no_uts'><a href="+data.link_uts+" target='_blank'>"+data.no_uts+"</a></td>"+
+                 "<td class='nom_uts'><a href="+data.link_uts+" target='_blank'>"+data.nom_uts+"</td>"+
+				 "<td class='pourcent_uts'>"+data.pourcent+"%</td>"+
+               "</tr>";
+       $(r).appendTo("#utsTable");
+     });});
+
+</script>
+
+{{/features}}

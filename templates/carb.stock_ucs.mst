@@ -1,0 +1,188 @@
+<!-- *** TEMPLATE Stock de carbone / BANDEAU DROITE *** --> 
+
+{{#features}}
+	<li class="item" style="width:100%;">
+		<!-- TITLE -->
+		<div id="titleBoxSol" style="margin: 0;">
+			<div class="title-feature">UCS N°{{N_UCS}}</div>
+			<div class="subtitle-feature"><span id="nom_ucs">#</span></div>
+		</div>
+		<!-- /.TITLE -->
+		<!-- STOCK NUMBER -->
+        <div id="numberStockC_block" style="margin: 0;">
+            <div class="number-feature" id="Prof30">
+                <div class="NumberStock">{{Stock_C_30}} t/ha</div>
+				<div class="subtitleNumberStock">Entre 0 et 30cm de profondeur</div> 
+				<div class="titleNumberStock">Estimation du stock de carbone</div>
+            </div>				
+		</div>
+		<div id="numberStockC_block" style="margin: 0;">
+            <div class="number-feature" id="Prof1M">
+                <div class="NumberStock">{{Stock_C_1m}} t/ha</div>
+				<div class="subtitleNumberStock">Entre 0 et 1m de profondeur</div> 
+				<div class="titleNumberStock">Estimation du stock de carbone</div>
+            </div>				
+		</div>
+        <!-- /.STOCK NUMBER -->
+	</li>
+
+
+<style>
+
+/* Import des fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Définition des variables */
+
+:root {
+	--font-theme: 'Roboto', sans-serif;
+	--font-condensed-theme: 'Roboto Condensed', sans-serif;
+	--mycolor: #6c675c;
+}
+
+	/* Texte */
+
+	.title-feature {
+		color: var(--mycolor);
+	    font-family: var(--font-condensed-theme);
+		font-weight:700;
+	    text-transform: uppercase;
+	    font-size: 19px;
+	    margin-bottom: 2px;
+	    line-height: 1.2;
+	}
+	.subtitle-feature {
+		color: var(--mycolor);
+		font-family: var(--font-condensed-theme);
+		text-transform: uppercase;
+		font-size:15px;
+		margin-bottom: 10px;
+		line-height:1.2;
+	}
+
+	.text-feature{
+		font-family: var(--font-theme);
+		color:#555;
+		font-size:12px;
+		margin-top:5%;
+	}
+
+	/* Titre */
+
+	#titleBoxSol {
+		padding: 8% 15% 10px 25px;
+	
+	}
+
+	/*------------------------*/
+
+	/**** Chiffres clés */
+
+	#numberStockC_block {
+		padding: 10px 20px;
+	}
+	.number-feature {
+		padding: 10px 5px 10px 90px;
+		background-size: 70px;
+		background-repeat: no-repeat;
+		background-position: 0% 50%;
+	}
+
+	.titleNumberStock {
+		font-family: var(--font-condensed-theme);
+		color: #B5AD9C;
+		font-size: 13px;
+	}
+
+	.subtitleNumberStock {
+		font-family: var(--font-condensed-theme);
+		text-transform: uppercase;
+		font-size: 14px;
+		line-height: 0.9;
+	}
+
+	.NumberStock {
+		font-family: var(--font-condensed-theme);
+		font-weight:700;
+    	font-size: 25px;
+    	text-transform: uppercase;
+	}
+
+	/**** Graphique  */
+
+	#graphStockC_block {
+		padding: 5%;
+		text-align:center;
+	}
+
+	.title-chart {
+		font-family: var(--font-theme);
+		font-weight:700;
+		color: var(--mycolor);
+		text-transform: uppercase;
+		font-size: 15px;
+		margin-top: 18px;
+	}
+
+	.subtitle-chart {
+		font-family: var(--font-theme);
+		color: var(--mycolor);
+		font-size: 12px;
+	}
+
+
+	/* Number 30cm */
+	#Prof30 {
+		background-image: url(https://geosas.fr/apps/sdb/img/stock_c_30.svg);
+	}
+	#Prof30 .NumberStock, #Prof30 .subtitleNumberStock {
+		color: #BFBF88;	
+	}
+
+	/* Number 1m */
+	#Prof1M {
+		background-image: url(https://geosas.fr/apps/sdb/img/stock_c_1M.svg);
+	}
+	#Prof1M .NumberStock, #Prof1M .subtitleNumberStock {
+		color: #4B555F;	
+	}
+
+
+</style>
+
+<script>
+
+	var ucs = [];
+			{{#features}}
+				ucs.push('{{N_UCS}}');
+			{{/features}}
+
+	// Définition d'une fonction get_wfsdata
+	function get_wfsdata(url, args, callback) {
+			var qs = {
+				"service" : "WFS",
+				"version" : "2.0.0",
+				"request" : "GetFeature",
+				"outputFormat" : "application/json"
+			};
+			$.getJSON(url + $.param($.extend(qs, args)), callback);
+		}  
+    
+
+  // Requête WFS pour récupérer le nom de l'UCS
+  get_wfsdata("https://geosas.fr/geoserver/sdb/wfs?",
+        {
+            "typeNames" : "ucs_pp_bzh",
+            "propertyName" : "NOMUCS",
+            "CQL_FILTER" : "N_UCS="+ ucs +""
+        },
+        function (data) {
+          var nomUcs = data.features[0].properties.NOMUCS;
+          $('#nom_ucs').text(nomUcs);
+        }
+    );
+
+</script>
+
+{{/features}}

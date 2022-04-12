@@ -1,0 +1,32 @@
+MISE À JOUR DES CATÉGORIES DU GRAPHIQUE DU STOCK EN CARBONE (1M)
+
+> Actuellement, les UTS sont réparties (colorées) dans le graphique selon 3 catégories : 
+- Stock en carbone faible stock_c_100 < 8
+- Stock en carbone moyen 8 < stock_c_100 < 12
+- Stock en carbone élevé stock_c_100 > 12
+
+1. Ouvrir le fichier sdb/templates/carb.stock_ucs_graph.mst
+
+2. Les couleurs sont déterminées dans une fonction qui selon la valeur du stock en carbone 
+à 1m (stock_c_100) attribue une certaine couleur à la barre de l'UTS
+
+Pour modifier la classification, modifier la fonction getColorBarCarbone à la ligne 247 :
+
+function getColorBarCarbone(value) {
+	var color;
+	if (value < 8) {
+	  color = '#fbce75';
+	} else if (value >= 8 && value < 12) {
+	  color = '#bfbf88';
+	} else if (value >= 12) {
+	  color = '#407777';
+	};
+return color;
+}
+
+Pour modifier les couleurs, ajustez les codes couleurs #HEX avec vos propres couleurs. 
+Pour ajouter une catégorie, ajouter une condition else if en indiquant des bornes et une
+nouvelle couleur. 
+
+3. La légende du graphique est définie en HTML à la ligne 32. En cas de modifications, 
+pensez à ajuster la légende également > catégorie supplémentaire ou ajout des bornes

@@ -1,0 +1,8 @@
+{
+    "js": [
+        "chart.min.js"
+    ],
+    "html": "html/empty.html",
+    "target": "main",
+    "options": {}
+}

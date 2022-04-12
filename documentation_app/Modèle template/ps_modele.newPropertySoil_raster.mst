@@ -1,0 +1,208 @@
+<!-- 
+
+TEMPLATE PROPRIÉTÉ DES SOLS /
+MODÈLE POUR LE RASTER
+
+**
+
+NOTE : 
+Pour adapter ce template à une nouvelle propriété des sols, 
+veuillez suivre les indications numérotées entre commentaire
+
+--> 
+
+{{#features}}
+
+<li class="item container-template" style="width:100%;">
+	<div id="backgroundTitleSynth" style="line-height: 1.2;">
+		<div class="title-temp" style="font-size: 16px;opacity: 0.7;">Propriétés des sols</div>
+		<!-- 1. Modifier le titre avec le nom de votre propriété -->
+        <div class="title-temp">Ma propriété </div>        
+		<div class="subtitle-temp">Valeurs affichées pour le pixel sélectionné</div>
+	</div>	
+
+    <div class="blocChart">
+        <div id="idChart">
+			<!-- 2. Modifier l'ID du graphique avec le nom de votre propriété graphBarMaPropriete -->  
+			<canvas class="chart" id="graphBarPropertySoil" height="150"></canvas>
+		</div>
+		<div class="textChart">
+			<!-- 3. Modifier le titre avec l'intitulé de votre propriété -->
+			<div class="title-chart">Répartition de MA PROPRIETE selon la profondeur du sol</div>
+			<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+		</div>
+    </div>  
+    
+</li>
+<style>
+
+/* Import des fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Définition des variables */
+:root {
+	--font-theme: 'Roboto', sans-serif;
+	--font-condensed-theme: 'Roboto Condensed', sans-serif;
+	--color-theme: #6c675c;
+}
+
+.container-template {
+	padding: 15px;
+}
+
+/* Titres et texte */
+#backgroundTitleSynth {
+	background-image: url(https://geosas.fr/apps/sdb/img/soil_synthese.svg);
+    padding: 10px 0px 10px 65px;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: left;
+	margin-bottom: 20px;
+}
+
+.title-temp {
+	font-family: var(--font-condensed-theme);
+    text-transform: uppercase;
+    color: var(--color-theme);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.subtitle-temp {
+	font-family: var(--font-condensed-theme);
+	color: var(--color-theme);
+	font-size: 13px;
+    font-style: italic;
+}
+
+/* Chart */
+.textChart {
+    text-align: center;
+    margin: 10px 0;
+	color: var(--color-theme);
+}
+
+.title-chart {
+    font-weight: 600;
+}
+
+</style>
+<script>
+
+// Définition des couleurs selon les valeurs du raster
+// 4. Adapter les couleurs des bars selon les couleurs de votre analyse cartographique (Code couleur #Hex)
+// Si besoin, vous pouvez adapter le nombre de classes en supprimant des else if > ;
+		function getColorBar(value) {
+			var color;
+			if (value < 5) {
+				color = '#faebdd';
+			} else if (value >= 5 && value < 7.5) {
+				color = '#f6ac84';
+			} else if (value >= 7.5 && value < 10) {
+				color = '#f16144';
+			} else if (value >= 10 && value < 12.5) {
+				color = '#cb1b4f';
+			} else if (value >= 12.5 && value < 15) {
+				color = '#851e5a';
+			} else if (value >= 15 && value < 20) {
+				color = '#401b44';
+			} else if (value >= 20) {
+				color = '#03051a';
+			};
+			return color;
+		}
+
+// 5 . Il n'est pas nécessaire de modifier le nom des champs, si la couche raster est structurée sur le même modèle que les propriétés existantes
+		// Création du graphique
+		// Variables du graphique
+		var labelsBar = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBar = [
+			parseFloat({{Band1}}),
+			parseFloat({{Band2}}),
+			parseFloat({{Band3}}),
+			parseFloat({{Band4}}),
+			parseFloat({{Band5}}),
+			parseFloat({{Band6}})
+		];
+		var colorsBar = [
+			getColorBar({{Band1}}),
+			getColorBar({{Band2}}),
+			getColorBar({{Band3}}),
+			getColorBar({{Band4}}),
+			getColorBar({{Band5}}),
+			getColorBar({{Band6}})
+		];
+
+		var graph_bar = {};
+		graph_bar.getData = function() {
+			var data = {
+				chart_bar: {
+					labels: labelsBar,
+					colors: colorsBar,
+					data: datasetBar
+				}
+			};
+			console.log(data);
+			graph_bar.drawChart(data);
+		};
+    
+		graph_bar.drawChart = function(data) {
+			//6. Modifier l'ID du graphique avec le nom de votre propriété graphBarMaPropriete
+			var ctx = document.getElementById("graphBarPropertySoil");
+			var graphBarPropertySoil = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar.labels,
+					datasets: [{
+						label: "",
+						backgroundColor: data.chart_bar.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+                            gridLines: {
+                                display:false
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Profondeur du sol'
+                            }
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								//7. Modifier l'unité du graphique 
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " unit";
+							}
+						}
+					}
+				}
+			});
+		};
+
+		if (typeof Chart === 'function') {
+			graph_bar.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar.getData();
+			});
+		}
+
+</script>
+
+{{/features}}

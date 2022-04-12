@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="Home" content="Page d'accueil SRADDET">
+  <link href="https://geosas.fr/apps/sdb/css/help_sdb.css" rel="stylesheet">
+  
+  <style>
+  /** Modification de la taille de la fenêtre aide **/
+    @media (min-width: 992px){
+      #help .modal-lg {
+      width: 1000px;
+      }  
+    }   
+
+    .homeclose{
+      margin: 30px 0px;
+      text-align: center;
+    }
+
+    a.btn-circle {
+        background-color: #417878;
+        border-radius: 5rem;
+        color: white;
+        margin: 5px;
+        box-shadow: 1px -1px 17px -4px rgb(0 0 0 / 40%);
+        -webkit-box-shadow: 1px -1px 17px -4px rgb(0 0 0 / 40%);
+        -moz-box-shadow: 1px -1px 17px -4px rgb(0 0 0 / 40%);
+    }
+
+    a.btn-circle:hover {
+        opacity:0.8;
+    }
+
+    #btnHelpDoc {
+        position: absolute;
+        top: 0px;
+        left: 80px;
+    }
+
+  </style>
+
+  <title>Les Sols de Bretagne à la carte</title>
+</head>
+
+
+<body>
+  <!-- STRUCTURE DU MODULE D'ACCUEIL * SOLS DE BRETAGNE * -->
+
+  <!--Logo de l'application-->
+  <div class="img_homeLogo"  style="text-align: center;">
+    <img src="https://geosas.fr/apps/sdb/img/SDB_illuhome.svg" width="350px" style="margin-bottom: 30px;">
+  </div>
+
+  <!-- Bouton vers la vidéo d'aide -->
+  <div id="btnHelpDoc">
+    <a href="http://sols-de-bretagne.fr/inventaire-et-cartographie-sols/239-demonstration-visualiseur.html" target="_blank" class="btn-circle" style="padding: 15px 18px;"><i class="fas fa-question"></i></a>
+    <a href="mailto:solsdebretagne@agrocampus-ouest.fr" class="btn-circle" style="padding: 15px 16px;"><i class="far fa-envelope"></i></a>
+  </div>
+  
+
+  <!-- navbar -->
+  <ul class="nav nav-tabs nav-center" role="tablist">
+    <li role="presentation" class="active" >
+      <a href="#section_1" aria-controls="profile" role="tab"
+      data-toggle="tab">Bienvenue</a>
+    </li>
+    <li role="presentation">
+      <a href="#section_2" aria-controls="profile" role="tab"
+      data-toggle="tab">Le programme Sols de Bretagne</a>
+    </li>
+    <li role="presentation">
+      <a href="#section_3" aria-controls="profile" role="tab"
+      data-toggle="tab">Contacts & crédits</a>
+    </li>
+  </ul>
+  <!-- /.navbar -->
+
+  <div class="tab-content">
+    <!--Section 1-->
+    <div role="tabpanel" class="tab-pane active" id="section_1" style="text-align: justify;">
+      <h2 class="title-welcome">Les Sols de Bretagne à la carte</h2>
+      <p>A l’interface entre l’eau et l’air, milieu et support de la vie, les sols remplissent des fonctions essentielles aux équilibres globaux et au développement des activités humaines. Or, pour gérer le capital non renouvelable qu’est le sol, encore faut-il connaître ses différentes facettes ! Plus ou moins épais, caillouteux, argileux, riches en matière organique, acide, etc., les sols varient de façon importante dans l’espace. </br></br>
+        Imaginé et créé dans le cadre du programme Sols de Bretagne, ce portail permet de visualiser, consulter et télécharger les données sur les sols qui sont disponibles et utiles aux acteurs des domaines de l’agronomie, de l’environnement, de l’aménagement, et aux curieux. </br></br>
+        Vous trouverez sur ce portail une carte des sols couvrant l’ensemble de la région (le référentiel Régional Pédologique de Bretagne, à l’échelle 1/250 000), mais aussi des cartes plus précises mais moins étendues, des indicateurs fonctionnels (comme le stock de carbone organique par exemple), et des liens vers des fiches descriptives de sols.</br></br>
+      </p>
+
+      <!-- Button Close modal-->
+      <div class="homeclose">
+        <a href="" class="data-downl" data-dismiss="modal"><span class="fa fa-close" aria-hidden="true"></span> Entrer dans l'application</a>
+      </div>
+      <!-- /.Button Close modal-->
+    </div>
+    <!--/.Section 1-->
+
+    <!--Section 2-->
+    <div role="tabpanel" class="tab-pane" id="section_2" style="text-align: justify;">
+      <h2 class="title-welcome">Le programme Sols de Bretagne</h2>
+      <p>Depuis 2005, les partenaires du programme <a href="http://www.sols-de-bretagne.fr" target="_blank">Sols de Bretagne </a> œuvrent pour compléter, organiser et diffuser les informations sur les sols de la région, mais aussi suivre l’évolution de leur qualité. Ceci dans l’optique de préserver les ressources naturelles, adapter les pratiques agricoles, aménager le territoire, et protéger de zones sensibles. Financé par la région Bretagne, les départements bretons et l’Etat, Sols de Bretagne est coordonné par l’Institut Agro (école interne Agrocampus Ouest).</br></br> 
+        L’objectif initial de Sols de Bretagne était de mettre en œuvre en région les programmes nationaux de connaissance des sols coordonnés par le <a href="www.gissol.fr" target="_blank">Groupement d’intérêt Scientifique sur les sols. </a></br></p>
+        <ul>
+          <li>le volet Référentiel Régional Pédologique au 1/250 000 du programme Inventaire, Gestion et Conservation des Sols</li>
+          <li>le programme Réseau de Mesures de la Qualité des Sols (RMQS) qui consiste à revenir tous les 10 à 15 ans sur 110 points en région pour mettre en évidence l’évolution de la qualité des sols.</li>
+        </ul>
+        <p>
+        Depuis une quinzaine d’années Sols de Bretagne a également permis la création d’outils opérationnels de connaissance des sols, mais aussi la mise en valeur de cartes pédologiques précises, très pertinentes localement.</br>
+      </p>
+      <!-- Button Close modal-->
+      <div class="homeclose">
+        <a href="" class="data-downl" data-dismiss="modal"><span class="fa fa-close" aria-hidden="true"></span> Entrer dans l'application</a>
+      </div>
+      <!-- /.Button Close modal-->
+    </div>
+     <!--/.Section 2-->
+
+     <!--Section 3-->
+    <div role="tabpanel" class="tab-pane" id="section_3" style="text-align: justify;">
+      <h2 class="title-welcome">CONTACTS</h2>
+      <h4 class="subtitle-welcome">Vous avez la parole :</h4>
+      <p>Une question, une suggestion ? N'hésitez pas à nous contacter : <a href="mailto:solsdebretagne@agrocampus-ouest.fr">solsdebretagne@agrocampus-ouest.fr </a></p>
+
+      <h4 class="subtitle-welcome">Les partenaires du projet :</h4>
+      <div class="img_logoP"  style="text-align: center;">
+        <img src="https://geosas.fr/apps/sdb/img/logos_partenaires/regionbretagne.png" width="12%">
+        <img src="https://geosas.fr/apps/sdb/img/logos_partenaires/conseildep22.png" width="15%">
+        <img src="https://geosas.fr/apps/sdb/img/logos_partenaires/conseildep29.png" width="15%">
+        <img src="https://geosas.fr/apps/sdb/img/logos_partenaires/conseildep35.png" width="15%">
+        <img src="https://geosas.fr/apps/sdb/img/logos_partenaires/conseildep56.png" width="15%">
+        <img src="https://geosas.fr/apps/sdb/img/logos_partenaires/agrocampus.jpg" width="35%">
+        <img src="https://geosas.fr/apps/sdb/img/logos_partenaires/INRAE.jpg" width="15%">
+        <img src="https://geosas.fr/apps/sdb/img/logos_partenaires/gissol.png" width="15%">
+      </div>
+      <h4 class="subtitle-welcome">Conception et réalisation de l'application :</h4>
+      <div class="img_logoP"  style="text-align: center;">
+        <a href="https://geosas.fr/web/" target="_blank"><img src="https://geosas.fr/apps/sdb/img/geosas_logo.png" width="20%"></a>
+        <a href="http://www.sols-de-bretagne.fr/" target="_blank"><img src="https://geosas.fr/apps/sdb/img/logos_partenaires/sol_bretagne.png" width="20%"></a>
+        <a href="https://www.agatheadam.com/" target="_blank"><img src="https://geosas.fr/apps/sdb/img/AgathA_logo.png" width="10%"></a>
+      </div>
+
+
+      <!-- Button Close modal-->
+      <div class="homeclose">
+        <a href="" class="data-downl" data-dismiss="modal"><span class="fa fa-close" aria-hidden="true"></span> Entrer dans l'application</a>
+      </div>
+      <!-- /.Button Close modal-->
+
+    </div>
+     <!--/.Section 3-->
+
+
+  </div>
+
+</body>
+</html>

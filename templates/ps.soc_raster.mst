@@ -1,0 +1,186 @@
+<!-- *** TEMPLATE / Propriétés des sols >> SOC *** --> 
+
+{{#features}}
+
+<li class="item container-template" style="width:100%;">
+	<div id="backgroundTitleSynth" style="line-height: 1.2;">
+		<div class="title-temp" style="font-size: 16px;opacity: 0.7;">Propriétés des sols</div>
+        <div class="title-temp">Carbone organique</div>        
+	</div>	
+
+    <div class="blocChart">
+        <div id="idChartSOC">
+			<canvas class="chart" id="GraphBarSOC" height="150"></canvas>
+		</div>
+		<div class="textChart">
+			<div class="title-chart">Répartition du carbone organique (g/kg) selon la profondeur du sol</div>
+			<div class="subtitle-chart"><i>Pour le pixel sélectionné</i></div>
+		</div>
+    </div>  
+    
+</li>
+<style>
+
+/* Import des fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Définition des variables */
+:root {
+	--font-theme: 'Roboto', sans-serif;
+	--font-condensed-theme: 'Roboto Condensed', sans-serif;
+	--color-theme: #6c675c;
+}
+
+.container-template {
+	padding: 15px;
+}
+
+/* Titres et texte */
+#backgroundTitleSynth {
+	background-image: url(https://geosas.fr/apps/sdb/img/soil_synthese.svg);
+    padding: 10px 0px 10px 65px;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: left;
+	margin-bottom: 20px;
+}
+
+.title-temp {
+	font-family: var(--font-condensed-theme);
+    text-transform: uppercase;
+    color: var(--color-theme);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.subtitle-temp {
+	font-family: var(--font-condensed-theme);
+	color: var(--color-theme);
+	font-size: 13px;
+    font-style: italic;
+}
+
+/* Chart */
+.textChart {
+    text-align: center;
+    margin: 10px 0;
+	color: var(--color-theme);
+}
+
+.title-chart {
+    font-weight: 600;
+}
+
+</style>
+<script>
+
+		// Couleurs du graphique SOC
+		function getColorBarSOC(value) {
+			var color;
+			if (value < 5) {
+				color = '#e5f5f9';
+			} else if (value >= 5 && value < 10) {
+				color = '#7de5a9';
+			} else if (value >= 10 && value < 20) {
+				color = '#4ade88';
+			} else if (value >= 20 && value < 30) {
+				color = '#25bf65';
+			} else if (value >= 30 && value < 40) {
+				color = '#108b43';
+			}  else if (value >= 40) {
+				color = '#4e4e4e';
+			};
+			return color;
+		}
+
+		// Création du graphique
+		// Variables du graphique
+		var labelsBarSOC = ["0-5 cm", "5-15 cm", "15-30 cm", "30-60 cm", "60-100 cm", "100-200 cm"];
+		var datasetBarSOC = [
+			parseFloat({{Band1}}),
+			parseFloat({{Band2}}),
+			parseFloat({{Band3}}),
+			parseFloat({{Band4}}),
+			parseFloat({{Band5}}),
+			parseFloat({{Band6}})
+		];
+		var colorsBarSOC = [
+			getColorBarSOC({{Band1}}),
+			getColorBarSOC({{Band2}}),
+			getColorBarSOC({{Band3}}),
+			getColorBarSOC({{Band4}}),
+			getColorBarSOC({{Band5}}),
+			getColorBarSOC({{Band6}})
+		];
+
+		var graph_bar_SOC = {};
+		graph_bar_SOC.getData = function() {
+			var data = {
+				chart_bar_SOC: {
+					labels: labelsBarSOC,
+					colors: colorsBarSOC,
+					data: datasetBarSOC
+				}
+			};
+			console.log(data);
+			graph_bar_SOC.drawChart(data);
+		};
+    
+		graph_bar_SOC.drawChart = function(data) {
+			var ctx = document.getElementById("GraphBarSOC");
+			var GraphBarSOC = new Chart(ctx, {
+				type: 'horizontalBar',
+				data: {
+					labels: data.chart_bar_SOC.labels,
+					datasets: [{
+						label: "SOC en cmol(+)/kg",
+						backgroundColor: data.chart_bar_SOC.colors,
+						borderColor: '#6c675c',
+						borderWidth: 1,
+						borderSkipped: 'left',
+						data: data.chart_bar_SOC.data
+					}]
+				},
+				options: {
+					legend: {
+						display: false
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								min: 0,
+								callback: function(value, index, values) {
+									return value.toLocaleString();
+								}
+							},
+                            gridLines: {
+                                display:false
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Profondeur du sol'
+                            }
+						}]
+					},
+					tooltips: {
+						callbacks: {
+							label: function(tooltipItem, data) {
+								return parseFloat(data.datasets[0].data[tooltipItem.index]).toFixed(2).toLocaleString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " g/kg";
+							}
+						}
+					}
+				}
+			});
+		};
+
+		if (typeof Chart === 'function') {
+			graph_bar_SOC.getData();
+		} else {
+			$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', function() {
+				graph_bar_SOC.getData();
+			});
+		}
+
+</script>
+
+{{/features}}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>APISol Viewer</title>
+  <meta charset="utf-8">
+  <link href="tests/css/test.css" rel="stylesheet" type="text/css">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="dist/index.js"></script>
+  <link href="dist/index_iframe.css" rel="stylesheet" type="text/css">
+</head>
+<body onload="" style="background:">
+
+  <div id="test-modal"><!-- modal content will be inserted here --></div>
+
+</body>
+
+  <script type="text/javascript">
+    var urlParam = new URLSearchParams (window.location.search);
+    var lon = urlParam.get ('lon') ;
+    var lat = urlParam.get ('lat') ;
+    console.log ('lat='+lat+' lon='+lon) ;
+    
+
+    /* Initilisation du plugin de SolAid */
+    var solaid = $('#test-modal').APISol({
+      enableSetUTS: false,
+    });
+    if (lat === null || lon === null) {
+      console.log ("Les coordonnées géographiques sont mal définies");
+      console.log ("Syntaxe de l'URL attendue : https://geosas.fr/apisol-viewer?lat=48&lon=-3");
+    }else{
+      openPlugin();
+
+    //evenements
+      $('.btn-reset').on('click',function(e){
+        openPlugin();
+      });
+
+      $('.btn-show').on('click',function(e){
+        solaid.show();
+      });
+
+      $('.btn-hide').on('click',function(e){
+        solaid.hide();
+      });
+
+
+      solaid.on('apisol:open', function(e, lat, lon, srid) { console.log('[Event] apisol:open', lat, lon, srid); });
+      solaid.on('utsprecise:detected', function(e) { console.log('[Event] utsprecise:detected', e); });
+      solaid.on('ucs:choice', function(e) { console.log('[Event] ucs:choice'); });
+      solaid.on('questions:loaded', function(e, q) { console.log('[Event] questions:loaded', q); });
+      solaid.on('question:display', function(e, q) { console.log('[Event] question:display', q); });
+      solaid.on('uts:found', function(e, u) { console.log('[Event] uts:found', u); });
+      solaid.on('uts:confirm', function(e,u) { console.log('[Event] uts:confirm', u); });
+      solaid.on('uts:confirmed', function(e,u) { console.log('[Event] uts:confirmed', u); });
+      solaid.on('tree:open', function(e,w,h) { console.log('[Event] tree:open', w, h); });
+      solaid.on('tree:close', function(e,w,h) { console.log('[Event] tree:close', w, h); });
+    }
+
+    function setLatLon(lat,lon) {
+
+      $('#lat').val(lat);
+      $('#lon').val(lon);
+    }
+
+    function openPlugin() {
+
+      let profil = 0
+
+      lat = lat.replace(',','.');
+      lon = lon.replace(',','.');
+
+      let newlat = parseFloat(lat)+parseFloat(0.46);
+
+      solaid
+       .setProfil(profil)
+       .reset()
+       .load(lat, lon, 4326)
+       ;
+
+    }
+  </script>
+</html>
